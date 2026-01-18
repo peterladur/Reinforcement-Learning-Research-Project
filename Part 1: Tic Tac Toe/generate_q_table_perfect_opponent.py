@@ -180,7 +180,7 @@ def generate_all_possible_states():
 
     print(len(all_states))
     
-    write_set_to_file(all_states, "Peter_Ladur_list_of_all_possible_states.txt")
+    write_set_to_file(all_states, "list_of_all_possible_states.csv")
 
     print(f"x wins: {x_wins}")
     print(f"o wins: {o_wins}")
@@ -205,6 +205,7 @@ def write_set_to_file(my_set, filename):
     """
     try:
         with open(filename, 'w') as f:
+            f.write('state' + '\n')
             for item in my_set:
                 f.write(str(item) + '\n')
         print(f"Set elements successfully written to '{filename}'.")
