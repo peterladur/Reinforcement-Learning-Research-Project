@@ -118,11 +118,11 @@ def generate_all_possible_states():
     possible_states[9] = unique_combinations
     
 
-    """part 2 will remove an x or a o, step by step"
-    
+    """part 2 will remove an x or a o, step by step to generate a Q-Table
+
     "parent combination" is the original combination from which a symbol is removed """
     for turn in range(8, -1, -1):
-        possible_states[turn] = set()
+        possible_states[turn] = set() 
 
         #the symbol removed depends on which turn it is
         symbol = "x"
@@ -150,29 +150,45 @@ def generate_all_possible_states():
                         else:
                             validity = check_state(combination) #we want to see what is the result of the original combination
                             
-                            if validity in {-1, 1, 0}:
-                                Q_Table[str_combination][i] = validity
-                            else:
-                                if symbol == 'x':
-                                    Q_Table[str_combination][i] = find_minimum(Q_Table.setdefault(combination, []))
-                                if symbol == 'o':
-                                    Q_Table[str_combination][i] = find_maximum(Q_Table.setdefault(combination, []))
+                            if validity != 2: #If the original state is terminal, then the q value for that entry is the result
+                                Q_Table[str_combination][i] = validity 
+                            else: #If the original combination is not valid then we 
+                                if symbol == 'x': #if X was removed, we want to see, how good was the original position for O 
+                                    Q_Table[str_combination][i] = find_minimum(Q_Table.setdefault(combination, [])) #We pick the lowest possible Q-value
+                                if symbol == 'o': #if O was removed, it is the opposite
+                                    Q_Table[str_combination][i] = find_maximum(Q_Table.setdefault(combination, [])) #We pick the lowest possible Q-value
 
 
-                    list_combination[i] = symbol
+                    list_combination[i] = symbol #since, we have removed the symbol earlier, we now add it back
+    
+    for turn in possible_states: #makes sure each state is a valid one
+        possible_states[turn] = {x for x in possible_states[turn] if (check_state(x) != None)}
 
-                    
+    return possible_states, Q_Table #return all the values
+
+def print_and_write_statistics(possible_states, Q_Table, csv_filename="list_of_all_possible_states.csv", json_filename="perfect_Q_Table.json"):
+    """prints the statistics for the Q-Table
+    
+    The game state distribution (o-wins, draws, x-wins, undetermined)
+    The total possible number of game states
+
+    Writes the data
+
+    All possible game states (e.g. "xx_xx_xooo_") to a .csv file
+    The Q-Table for the perfect opponent to a .json file
+    """    
+    
     x_wins = 0
     o_wins = 0
     draws = 0
     undetermined = 0
 
-    for turn in possible_states:
-        possible_states[turn] = {x for x in possible_states[turn] if (check_state(x) != None)}
+
 
     all_states = []
-    for turn in possible_states:
-        for position in possible_states[turn]:
+
+    for turn in possible_states: #goes through each state
+        for position in possible_states[turn]: #records it's result
             result = check_state(position)
             if result == 1:
                 x_wins +=1
@@ -182,33 +198,26 @@ def generate_all_possible_states():
                 draws += 1
             if result == 2:
                 undetermined += 1
-            all_states.append(position)
+            all_states.append(position) #adds it to a final list
 
 
-    print(len(all_states))
-    
-    write_set_to_file(all_states, "list_of_all_possible_states.csv")
-
+    #print statistics
+    print(f"Total possible positions: {x_wins + o_wins + draws + undetermined}")
     print(f"x wins: {x_wins}")
     print(f"o wins: {o_wins}")
     print(f"Draws: {draws}")
     print(f"Undetermined: {undetermined}")
-    print(f"Total possible positions: {x_wins + o_wins + draws + undetermined}")
 
 
-    pprint.pprint(Q_Table)
-
-    with open("perfect_Q_Table.json", "w", encoding="utf-8") as f:
+    #write .csv and .json file
+    write_set_to_file(all_states, csv_filename)
+    with open(json_filename, "w", encoding="utf-8") as f:
         json.dump(Q_Table, f, indent=2)
 
 
 def write_set_to_file(my_set, filename):
     """
     Writes each element of a set to a text file, with each entry on a new line.
-
-    Args:
-        my_set: The set to write to the file.
-        filename: The name of the file to write to.
     """
     try:
         with open(filename, 'w') as f:
@@ -224,7 +233,8 @@ def main():
 
     TOTAL_LENGTH = 0
     t1 = time.time()
-    generate_all_possible_states()
+    possible_states, Q_Table = generate_all_possible_states()
+    print_and_write_statistics(possible_states, Q_Table)
     t2 = time.time()
     print(t2 - t1)
 
