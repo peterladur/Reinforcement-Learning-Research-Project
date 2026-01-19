@@ -130,7 +130,7 @@ def generate_all_possible_states():
             symbol = "o"
 
 
-        for combination in possible_states[turn + 1]: #goes through each "parente combination"
+        for combination in possible_states[turn + 1]: #goes through each "parent combination"
             list_combination = list(combination) 
             for i, char in enumerate(list_combination): #for each x/o in the combination, it removes it, and adds the possibility to the list
                 if char == symbol:
@@ -166,7 +166,7 @@ def generate_all_possible_states():
 
     return possible_states, Q_Table #return all the values
 
-def print_and_write_statistics(possible_states, Q_Table, csv_filename="list_of_all_possible_states.csv", json_filename="perfect_Q_Table.json"):
+def print_and_write_statistics(possible_states, Q_Table, csv_filename="results/list_of_all_possible_states.csv", json_filename="results/perfect_Q_Table.json"):
     """prints the statistics for the Q-Table
     
     The game state distribution (o-wins, draws, x-wins, undetermined)
