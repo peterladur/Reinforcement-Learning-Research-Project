@@ -118,10 +118,10 @@ ___  ___  ___  ___  ___  _x  _xo xxo
 # %%
 #Step 1 & 2:
 
-def init_Q_Table(filename="results/list_of_all_possible_states.csv"):
+def init_Q_Table(filename="data_exports/list_of_all_possible_states.csv"):
     """Creates an empty Q_Table as a dictionary with numpy arrays of zeros"""
     
-    Q_Table_read = pd.read_csv("results/list_of_all_possible_states.csv") #read the data set using pandas
+    Q_Table_read = pd.read_csv("data_exports/list_of_all_possible_states.csv") #read the data set using pandas
 
 
 
@@ -141,10 +141,10 @@ def change_to_numpy(actions):
     actions = np.array(actions, dtype=float)
     return np.array(actions)
 
-def import_perfect_Q_Table(filename="results/perfect_Q_Table.json"):
+def import_perfect_Q_Table(filename="data_exports/perfect_Q_Table.json"):
     """"Imports the perfect Q_Table that was generated using a different scirpt"""
 
-    with open("results/perfect_Q_Table.json", "r", encoding="utf-8") as f:
+    with open("data_exports/perfect_Q_Table.json", "r", encoding="utf-8") as f:
         perfect_Q_Table = json.load(f)
 
 
