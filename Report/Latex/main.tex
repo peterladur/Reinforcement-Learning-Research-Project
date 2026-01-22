@@ -34,16 +34,18 @@ Where:\\
 \section{Tic-Tac-Toe}
 Tic-Tac-Toe is a simple two-player game on a 3 by 3 grid. The game originated in ancient Egypt atleast 1300 BC. Players take turns placing X's and O's in the grid with the goal of getting 3 in a row. The game is drawn with perfect play from both sides, but O's have to be precise to garantee a draw. Using the ``minimax'' algorithm -assuming the oppponent will play the optimal move- a theoretical Q-Table can be derived.
 
-\section{Software}
-The project heavily used python NumPy package to efficiently apply mathematical operations on arrays. 
+
+
 \chapter{Q-Learning on tic-tac-toe}
 
 \section{Algorithm}
 
 \section{Optimal and non optimal opponent}
 
-\section{Variations in $tau$, $alpha$ and $r$}
+\section{Variations in $tau$ and $alpha$}
+In general the Q-Learning governing equation has 4 hyperparameters ($\alpha$, $\tau$, $r$ and $\gamma$). The immidiate reward $r$ is by default set at $-1$ for loss, $0$ for draw, $1$ for  win and $0$ for just making a move. $\gamma$ is irrelevant as the future state matters as much as the current state (it doesn't matter if naughts loose on move 5 or on move 7, they still lost).\\
 
+However, $\tau$ and $\alpha$ matter significantly for the learning rate. 
 \chapter{Deep Q-Learning}
 
 \chapter{Conclusion}
