@@ -1,5 +1,5 @@
 \documentclass{report}
-
+\usepackage{amsmath, amssymb, amsthm} % Essential math tools
 
 \title{Q-Learning}
 \author{Peter (Petr) Ladur}
@@ -10,18 +10,28 @@
 \maketitle
 
 \chapter{Introduction}
-
+The aim of this project is to explore Q-Learning in the context of tic-tac-toe and as other applicationsusing python. How variations in hyperparameters ($\alpha$, $\tau$, $r$, $\gamma$) affect results was investigated to find optimal parameters for different scenarios. Deep-Q-Learning was explored in the context of a game and in the context of the stock market (haven't done yet, but will do once finish the report). 
 \chapter{Background}
 
-\section{Tic-Tac-Toe}
-Tic-Tac-Toe is a simple two-player game on a 3 by 3 grid. 
-The game originated in ancient Egypt atleast 1300 BC.
-Players take turns placing X's and O's in the grid with the goal of getting 3 in a row.
-The game is drawn with perfect play from both sides, but O's have to be precise to garantee a draw.
-
 \section{Q-Learning}
+Q-Learning is a form of reinforcement which is really good at dealing with discrete states. It relies on the Q-Table to store predicted expected values for each state. Initially the Q-Table can be initialised to random values, and after repeatidly exploring different states updating the predicted expected values for each state according to the "Bellman equation"
 
-\chapter{Tic Tac Toe Q-Learning}
+\begin{align}
+    Q_{new}(s_{t}, a) = (1-\alpha) \cdot Q(s_{t}, a) + \alpha (r + \gamma \cdot \text{max}{Q(s_{t + 1}, a)}) 
+\end{align}
+
+
+\section{Tic-Tac-Toe}
+Tic-Tac-Toe is a simple two-player game on a 3 by 3 grid. The game originated in ancient Egypt atleast 1300 BC. Players take turns placing X's and O's in the grid with the goal of getting 3 in a row. The game is drawn with perfect play from both sides, but O's have to be precise to garantee a draw. Using the "minimax" algorithm a theoretical Q-Table can be derived.
+
+\section{Software}
+
+\section{Q-Table}
+
+
+
+\chapter{Q-Learning on tic-tac-toe}
+
 
 \chapter{Deep Q-Learning}
 
