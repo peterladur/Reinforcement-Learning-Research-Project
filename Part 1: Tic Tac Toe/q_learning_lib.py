@@ -88,10 +88,11 @@ def display_state(state: str):
     print(state[6] + state[7] + state[8])
 
 # %%
+"""
 ___  __x  _ox  _ox  _ox  _ox _ox _ox
 ___  ___  ___  _x_  _xo  _xo _xo _xo
 ___  ___  ___  ___  ___  _x  _xo xxo 
-
+"""
 
 # %% [markdown]
 # Step 1:
