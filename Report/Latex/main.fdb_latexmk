@@ -1,8 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1769063451.12683 "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" "main.pdf" "main" 1769063451.40233 0
+["pdflatex"] 1769068323.79126 "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" "main.pdf" "main" 1769068324.08491 0
   "/etc/texmf/web2c/texmf.cnf" 1768704552.33344 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" 1769063450.59751 1718 6575c7a601450abad05dd8161d510d77 ""
+  "/home/peterladur/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1768710513.96114 11524 c40f6e9ac529a5d6892c0be42618c2d1 ""
+  "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" 1769068323.25406 2265 360c9fdb9667db3e9a0b55c67c86f376 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -25,6 +27,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
@@ -48,8 +51,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1768704736.44686 29733 557fe7d0cd2c1676b9dab1c7555f78ad ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1768704753 6800793 f922ea5fd15baf484498cbfb6f7838de ""
-  "main.aux" 1769063451.36257 1496 5918321bf5c1d4d76789e529fc397e15 "pdflatex"
-  "main.tex" 1769063450.59751 1718 6575c7a601450abad05dd8161d510d77 ""
+  "main.aux" 1769068324.03407 1843 c9c819d04ca4fa59f33ce5c76f8af528 "pdflatex"
+  "main.tex" 1769068323.25406 2265 360c9fdb9667db3e9a0b55c67c86f376 ""
   (generated)
   "main.aux"
   "main.log"
