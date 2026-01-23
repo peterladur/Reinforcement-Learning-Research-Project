@@ -1,7 +1,4 @@
 # %%
-
-"""Library for Q-Learning
-Allows to run Q-Learning in a separate 'results' jupyer notebook """
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -245,7 +242,7 @@ def pick_minimum(Q_Table: dict, state: str):
     for i in range(9):
         if valid_moves[i] == 1:
 
-            if Q_Table[state][i] > minimum:
+            if Q_Table[state][i] < minimum:
                 minimum = min(minimum, Q_Table[state][i])
     
     return minimum
@@ -477,6 +474,7 @@ def perform_training(player, opponent_type='perfect',number_of_batches=NUMBER_OF
 
         if batch_number % 200 == 0: #every hundred values, displays score
             counter_final_values.append(counter)
+
             counter = [0, 0, 0]
             if display_training:
                 print(int(batch_number))
