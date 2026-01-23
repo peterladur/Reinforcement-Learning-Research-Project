@@ -277,7 +277,7 @@ def learn_from_queue(Q_Table, queue, alpha=0.1, player='x'):
 
 def display_counter(counter):
     """displays the statistics over the last 100 games"""
-    total = sum(counter) / 100
+    total = np.sum(counter) / 100
     print(f"{counter[0]/total:.2f}%   {counter[1]/total:.2f}%   {counter[2]/total:.2f}%")
 
 
@@ -475,13 +475,11 @@ def perform_training(player, opponent_type='perfect',number_of_batches=NUMBER_OF
         if batch_number % 200 == 0: #every hundred values, displays score
             counter_final_values.append(counter)
 
-            counter = [0, 0, 0]
             if display_training:
                 print(int(batch_number))
                 display_counter(counter)
+            counter = [0, 0, 0]
 
     #print(Q_Table)
     return Q_Table, np.array(counter_final_values)
-
-
 
