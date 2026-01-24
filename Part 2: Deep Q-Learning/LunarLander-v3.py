@@ -122,7 +122,7 @@ for i in range(5):
         action = np.argmax(A_list[-1])
         state, reward, terminated, truncated, _ = test_env.step(action)
         done = terminated or truncated
-        score += reward
+        score += reward # type: ignore
     print(f"Victory Lap {i+1} Score: {score:.2f}")
 
 test_env.close()
