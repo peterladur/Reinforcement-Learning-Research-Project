@@ -277,7 +277,7 @@ def learn_from_queue(Q_Table, queue, alpha=0.1, player='x'):
 
 def display_counter(counter):
     """displays the statistics over the last 100 games"""
-    total = np.sum(counter) / 100
+    total = sum(counter) / 100
     print(f"{counter[0]/total:.2f}%   {counter[1]/total:.2f}%   {counter[2]/total:.2f}%")
 
 
@@ -287,7 +287,7 @@ pick_random_move(x)
 
 # %%
 
-def plot_triplet_ratios(data, component_labels=("A", "B", "C"), normalize=True, show=True):
+def plot_triplet_ratios(data, batch_size, component_labels=("A", "B", "C"),normalize=True, show=True):
     """
     Plot a list of 3-element lists (triplets) that (roughly) sum to 100.
     Produces two plots:
@@ -321,7 +321,7 @@ def plot_triplet_ratios(data, component_labels=("A", "B", "C"), normalize=True, 
 
     # Split components
     comp1, comp2, comp3 = arr.T
-    x = np.arange(len(arr))* BATCH_SIZE * 100  # index (could be time or sample order)
+    x = np.arange(len(arr))* batch_size * 100  # index (could be time or sample order)
 
     # --- Plot 1: Stacked area (stackplot) ---
     fig1, ax1 = plt.subplots(figsize=(9, 5))
@@ -475,11 +475,12 @@ def perform_training(player, opponent_type='perfect',number_of_batches=NUMBER_OF
         if batch_number % 200 == 0: #every hundred values, displays score
             counter_final_values.append(counter)
 
+            counter = [0, 0, 0]
             if display_training:
                 print(int(batch_number))
                 display_counter(counter)
-            counter = [0, 0, 0]
 
-    #print(Q_Table)
     return Q_Table, np.array(counter_final_values)
+
+
 
