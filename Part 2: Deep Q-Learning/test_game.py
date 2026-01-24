@@ -5,8 +5,8 @@ import deep_q_learning_network_lib as dqn
 
 # --- 1. Hyperparameters ---
 ENV_NAME = "CartPole-v1"
-EPISODES = 500
-BATCH_SIZE = 64
+EPISODES = 300
+BATCH_SIZE = 32
 GAMMA = 0.95
 ALPHA = 0.001
 EPSILON_START = 1.0
@@ -15,7 +15,7 @@ EPSILON_DECAY = 0.995
 TARGET_UPDATE_FREQ = 10  # How many episodes before syncing target net
 
 # NN Structure: 4 inputs (state), two hidden layers of 24, 2 outputs (actions)
-NN_STRUCTURE = [4, 24, 24, 2]
+NN_STRUCTURE = [4, 32, 32, 2]
 FUNCTIONS = [dqn.ReLU, dqn.ReLU, dqn.identity]
 DERIVS = [dqn.deriv_ReLU, dqn.deriv_ReLU, dqn.deriv_identity]
 
@@ -45,12 +45,36 @@ class ReplayBuffer:
 
 # --- 3. Setup ---
 env = gym.make(ENV_NAME)
+visual_env = gym.make(ENV_NAME, render_mode="human")
 memory = ReplayBuffer(10000)
 epsilon = EPSILON_START
-
+scores = []
 # Initialize Main and Target Networks
 main_W, main_b = dqn.init_params(NN_STRUCTURE)
 target_W, target_b = [w.copy() for w in main_W], [b.copy() for b in main_b]
+
+
+print("\n--- Initial Training ---")
+test_env = gym.make(ENV_NAME, render_mode="human")
+
+for i in range(5): # Watch 5 games
+    state, _ = test_env.reset()
+    done = False
+    score = 0
+    
+    while not done:
+        # Use your trained weights to pick the best action
+        s_vec = state.reshape(-1, 1)
+        A_list, _ = dqn.forward_propogate(main_W, main_b, s_vec, FUNCTIONS)
+        action = np.argmax(A_list[-1])
+        
+        state, reward, terminated, truncated, _ = test_env.step(action)
+        done = terminated or truncated
+        score += reward
+        
+    print(f"Victory Lap {i+1} Score: {score}")
+
+test_env.close()
 
 # --- 4. Training Loop ---
 for episode in range(EPISODES):
@@ -98,7 +122,33 @@ for episode in range(EPISODES):
         target_W = [w.copy() for w in main_W]
         target_b = [b.copy() for b in main_b]
 
+
     if episode % 10 == 0:
         print(f"Episode: {episode}, Score: {total_reward}, Epsilon: {epsilon:.2f}")
+        scores.append(total_reward)
 
 env.close()
+
+print(scores)
+
+print("\n--- Training Complete! Starting Victory Lap ---")
+test_env = gym.make(ENV_NAME, render_mode="human")
+
+for i in range(5): # Watch 5 games
+    state, _ = test_env.reset()
+    done = False
+    score = 0
+    
+    while not done:
+        # Use your trained weights to pick the best action
+        s_vec = state.reshape(-1, 1)
+        A_list, _ = dqn.forward_propogate(main_W, main_b, s_vec, FUNCTIONS)
+        action = np.argmax(A_list[-1])
+        
+        state, reward, terminated, truncated, _ = test_env.step(action)
+        done = terminated or truncated
+        score += reward
+        
+    print(f"Victory Lap {i+1} Score: {score}")
+
+test_env.close()
