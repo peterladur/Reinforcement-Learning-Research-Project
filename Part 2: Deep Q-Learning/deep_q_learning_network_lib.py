@@ -94,7 +94,6 @@ def forward_propogate(weights, biases ,input_layer, functions):
         
         #A_n = activation function(Z_n)
         A = functions[i](Z)
-        print(A)
 
         forward_propogation_params_Z.append(Z)
         forward_propogation_params_A.append(A)
@@ -134,7 +133,7 @@ def back_propogate(forward_propogation_params_A, forward_propogation_params_Z, w
     dZ[actions, batch_indices] = predictions - targets
 
     #backpropogate through the layers until we get to the input layer
-    for i in range(len(weights) -1, 0, -1):
+    for i in range(len(weights) -1, -1, -1):
         #a bunch of matrix calculus I am semi familiar with, but want to understand better
         A_prev = forward_propogation_params_A[i] 
 
@@ -147,6 +146,7 @@ def back_propogate(forward_propogation_params_A, forward_propogation_params_Z, w
 
         if i > 0:
             dZ = (weights[i].T @ dZ) * functions_deriv[i - 1](forward_propogation_params_Z[i - 1])
+
 
     return dW_list, db_list
 
@@ -165,7 +165,8 @@ def update_params(weights, biases, back_propogration_weights, back_propogration_
         dW = back_propogration_weights[i]
         db = back_propogration_biases[i]
 
-
+        #print(f'weight W: {W.shape}')
+        #print(f'delta weight dW: {dW.shape}')
         #update the biases
         W -= alpha * dW
         b -= alpha * db
@@ -207,5 +208,5 @@ def update_target_model(main_model_weights, main_model_biases):
     """updates the target model to have the main model weights"""
     target_model_weights = [w.copy() for w in main_model_weights]
     target_model_biases = [b.copy() for b in main_model_biases]
-    
+
     return target_model_weights, target_model_biases
