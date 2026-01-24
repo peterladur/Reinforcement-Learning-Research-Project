@@ -5,7 +5,7 @@ import deep_q_learning_network_lib as dqn
 
 # --- 1. Hyperparameters ---
 ENV_NAME = "CartPole-v1"
-EPISODES = 300
+EPISODES = 500
 BATCH_SIZE = 32
 GAMMA = 0.95
 ALPHA = 0.001

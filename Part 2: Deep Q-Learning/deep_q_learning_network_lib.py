@@ -50,7 +50,7 @@ def deriv_identity(Z):
 #     - updating params
 # 
 #     - training step
-
+    
 # %%
 def init_params(nn_structure:list):
     """This function sets up initial parameters W1, b1, W2, b2, ... following the given structure"""
