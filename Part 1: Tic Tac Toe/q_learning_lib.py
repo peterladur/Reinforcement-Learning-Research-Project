@@ -475,10 +475,10 @@ def perform_training(player, opponent_type='perfect',number_of_batches=NUMBER_OF
         if batch_number % 200 == 0: #every hundred values, displays score
             counter_final_values.append(counter)
 
-            counter = [0, 0, 0]
             if display_training:
                 print(int(batch_number))
                 display_counter(counter)
+            counter = [0, 0, 0]
 
     return Q_Table, np.array(counter_final_values)
 
