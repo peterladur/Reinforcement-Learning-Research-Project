@@ -1,25 +1,55 @@
 \documentclass{report}
 \usepackage{amsmath, amssymb, amsthm} % Essential math tools
+\usepackage[table]{xcolor}
+\usepackage{cleveref}   
+\usepackage[utf8]{inputenc}
+\usepackage{makecell} % Required for multi-line cells\
+\usepackage{comment}
 
-\title{Q-Learning}
-\author{Peter (Petr) Ladur}
+
+\title{\textbf{Q-Learning}}
+\author{Peter (Petr) Ladur\\\\56445760}
 \date{}
 
 
 \begin{document}
 \maketitle
-
+ 
 \chapter{Introduction}
-The aim of this project is to explore Q-Learning in the context of tic-tac-toe and as other applicationsusing python. How variations in hyperparameters ($\alpha$, $\tau$, $r$) affect results was investigated to find optimal parameters for different scenarios. Deep-Q-Learning was explored in the context of a game and in the context of the stock market (haven't done yet, but will do once finish the report). \section{Q-Table}
+The aim of this project is to explore Q-Learning in the context of tic-tac-toe and other applications using python. Theoretical Q-Table was generated using the ``minimax'' algorithm, and was compared to Q-Tables generated through training against both, random and perfect opponent. How hyperparameters ($\alpha$, $\tau$) affect training results was investigated and an optimal function for hyperparameters was proposed. Deep-Q-Learning was investigated in the context of different games in the ``Open-AI gymnasium''. 
 
+
+\section{Q-Table}
 
 
 \chapter{Background}
 
-\section{Q-Learning}
-Q-Learning is a form of reinforcement used in environment with discrete states. It relies on the Q-Table to store predicted expected values for each state $Q(\text{state}, \text{action})$. Initially the Q-Table can be initialised to random values, and after repeatidly exploring different states updating the predicted expected values for each state according to the ``Bellman equation''
+\section{Q-Table}
+Q-Table is a table which contains contains expected outcomes after every possible actions which can be made in a particular state. In the context of tic-tac-toe the state is the game position at that particular moment, and actions are all the empty squares. As seen in \cref{tab:perfect_Q_Table_entry}, for that particualr state there are two actions that lead to a win and three actions which lead to a draw (assuming perfect play).
 
-\begin{align}
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
+% Draws top line starting from 2nd column
+\cline{2-10}
+\multicolumn{1}{c|}{} & (1, 1) & (1, 2) & (1, 3) & (2, 1) & (2, 2) & (2, 3) & (3, 1) & (3, 2) & (3, 3) \\ \hline
+\makecell{\_ \_ o \\ \_ x \_ \\ x o \_}  & 
+% This is the "No-Package" multi-line trick:
+\cellcolor{black!50}& 
+1 & 1 & \cellcolor{black!50} & \cellcolor{black!50} & 0 & 0 & 0 & \cellcolor{black!50}\\ \hline
+\end{tabular}
+% 3. ADD THE CAPTION AND LABEL HERE
+\caption{Two actions lead to a win, three actions lead to a draw assuming perfect play from both sides}
+\label{tab:perfect_Q_Table_entry} 
+\end{table}
+
+\begin{comment}
+    
+    \section{Q-Learning}
+    Q-Learning is a form of reinforcement used in environment with discrete states. It relies on the Q-Table to store predicted expected values for each state $Q(\text{state}, \text{action})$. Initially the Q-Table can be initialised to random values, and after repeatidly exploring different states updating the predicted expected values for each state according to the ``Bellman equation''
+    
+    \begin{align}
     Q_{new}(s_{t}, a) = (1-\alpha) \cdot Q(s_{t}, a) + \alpha (r + \gamma \cdot \text{max}{Q(s_{t + 1}, a)}) 
 \end{align}
 
@@ -33,16 +63,18 @@ Where:\\
 
 \section{Tic-Tac-Toe}
 Tic-Tac-Toe is a simple two-player game on a 3 by 3 grid. The game originated in ancient Egypt atleast 1300 BC. Players take turns placing X's and O's in the grid with the goal of getting 3 in a row. The game is drawn with perfect play from both sides, but O's have to be precise to garantee a draw. Using the ``minimax'' algorithm -assuming the oppponent will play the optimal move- a theoretical Q-Table can be derived.
+\end{comment}
 
 
 
 \chapter{Q-Learning on tic-tac-toe}
 
-\section{Algorithm}
+\section{Generating perfect theoretical Q-Table}
+The ``minimax'' algorithm can be used in turn-based games designed to minimise the potential loss and maximise the potential gain. The algorithm works by first generating all the possible final states and then taking turns ``undoing'' the moves that could have lead to that state by removing \textbf{X}'s. Then the process is repeated for   
 
 \section{Optimal and non optimal opponent}
 
-\section{Variations in $tau$ and $alpha$}
+\section{Variations in $\alpha$ and $\tau$}
 In general the Q-Learning governing equation has 4 hyperparameters ($\alpha$, $\tau$, $r$ and $\gamma$). The immidiate reward $r$ is by default set at $-1$ for loss, $0$ for draw, $1$ for  win and $0$ for just making a move. $\gamma$ is irrelevant as the future state matters as much as the current state (it doesn't matter if naughts loose on move 5 or on move 7, they still lost).\\
 
 However, $\tau$ and $\alpha$ matter significantly for the learning rate. 
