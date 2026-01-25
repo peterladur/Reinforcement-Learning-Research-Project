@@ -287,7 +287,7 @@ pick_random_move(x)
 
 # %%
 
-def plot_triplet_ratios(data, batch_size, component_labels=("A", "B", "C"),normalize=True, show=True):
+def plot_triplet_ratios(data, batch_size, component_labels=("O win", "draw", "X win"),normalize=True, show=True):
     """
     Plot a list of 3-element lists (triplets) that (roughly) sum to 100.
     Produces two plots:
@@ -327,8 +327,8 @@ def plot_triplet_ratios(data, batch_size, component_labels=("A", "B", "C"),norma
     fig1, ax1 = plt.subplots(figsize=(9, 5))
     colors = ["#4C78A8", "#F58518", "#54A24B"]  # pleasant color palette
     ax1.stackplot(x, comp1, comp2, comp3, labels=component_labels, colors=colors, alpha=0.9)
-    ax1.set_title("Stacked Area of Triplet Ratios" + (" (normalized to 100)" if normalize else ""))
-    ax1.set_xlabel("Index")
+   # ax1.set_title("Stacked Area of Triplet Ratios" + (" (normalized to 100)" if normalize else ""))
+    ax1.set_xlabel("Number of games played")
     ax1.set_ylabel("Percent")
     ax1.set_ylim(0, max(100, arr.sum(axis=1).max()))  # ensure room if not normalized
     ax1.legend(loc="upper right")
@@ -339,8 +339,8 @@ def plot_triplet_ratios(data, batch_size, component_labels=("A", "B", "C"),norma
     ax2.plot(x, comp1, label=component_labels[0], color=colors[0], marker="o", linewidth=2)
     ax2.plot(x, comp2, label=component_labels[1], color=colors[1], marker="o", linewidth=2)
     ax2.plot(x, comp3, label=component_labels[2], color=colors[2], marker="o", linewidth=2)
-    ax2.set_title("Win/Draw/Loss Distribution against random opponent" if normalize else "")
-    ax2.set_xlabel("Index")
+   # ax2.set_title(title if normalize else "")
+    ax2.set_xlabel("Number of games played")
     ax2.set_ylabel("Percent")
     ax2.legend(loc="best")
     ax2.grid(True, alpha=0.25)
