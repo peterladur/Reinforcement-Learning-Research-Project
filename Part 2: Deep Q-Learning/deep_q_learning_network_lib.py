@@ -1,5 +1,6 @@
 # %%
 import numpy as np
+from pathlib import Path
 
 # %% [markdown]
 # For deep q learning, there are a couple of differences in back prop we have to set up, but overall it's very similar to a typical NN setup
@@ -210,3 +211,17 @@ def update_target_model(main_model_weights, main_model_biases):
     target_model_biases = [b.copy() for b in main_model_biases]
 
     return target_model_weights, target_model_biases
+
+
+def save_model(weights, biases, model_name, location=''):
+    """saves the model to a .npy file"""
+    path = Path(location + '/' + model_name) 
+    path.mkdir(parents=True, exist_ok=True) # makes the directory to store the path in
+
+    np.save(f"{location + '/' + model_name}/weights.npy", weights) #stores weights
+    np.save(f"{location + '/' + model_name}/biases.npy", biases) #stores biases
+
+def load_model(location, model_name):
+    """loads the parameters"""
+    weights = np.load(f"{location + '/' + model_name}/weights.npy")
+    biases = np.load("{location + '/' + model_name}/biases.npy")
