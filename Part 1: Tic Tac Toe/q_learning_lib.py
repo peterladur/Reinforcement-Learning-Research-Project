@@ -438,6 +438,37 @@ def play_the_game_two_Q_Tables(Q_Table_X, Q_Table_O, strategy='perfect', tau=np.
 
     return result
 
+def play_the_game_Q_Table_vs_policy(Q_Table, player, strategy, perfect_Q_Table):
+    """plays the game using best moves from Q_Table from one opponent and moves from a random/perfect policy for the other opponent"""
+
+    state = "_________" #original state
+    move_number = 0
+    result = 2 #currently the game is being played
+    player_index = 0 #x has a player index of 0, o has a player index of 1 
+    oppostion = 'o'
+
+
+    if player == 'o':
+        player_index = 1
+        oppostion = 'x'
+
+    while result == 2: #While the game is still going
+        if (move_number % 2) == player_index: #if it's the turn of the player using Q_Table
+            action = pick_perfect_move(Q_Table, state, player)
+            state = update_board(state, int(action), player) #update board
+
+        else: #if  it's the turn of the computer player
+            if strategy == 'perfect': #perfect opponent players perfect move
+                action = pick_perfect_move(perfect_Q_Table, state, oppostion)
+            else: #random opponent plays random move
+                action = pick_random_move(state)
+            state = update_board(state, action, oppostion) #Update board
+
+        move_number += 1 
+
+        result = check_result(state) #check if the result is now terminal
+    return result
+
 
 def calculate_tau(turn) -> float:
     """calculates tau
@@ -531,6 +562,21 @@ def Q_Table_match(Q_Table_X, Q_Table_O, number_of_games=1000, strategy='perfect'
 
     return counter
 
+
+def Q_Table_vs_policy_match(Q_Table, player, number_of_games=1000, strategy='perfect'):
+    """Let's a Q-Table play against a certain policy (Q_table of x trainied on perfect, vs random O, etc)"""
+
+    counter = np.zeros(3) #this will be returned as the score
+    perfect_Q_Table = import_perfect_Q_Table()
+
+
+    for game in range(number_of_games):
+
+        result = play_the_game_Q_Table_vs_policy(Q_Table, player, strategy, perfect_Q_Table)
+
+        counter[result] += 1
+
+    return counter
 
 def play_random_match(number_of_games=1000):
     """"plays a match where both players move randomly and returns the results"""
