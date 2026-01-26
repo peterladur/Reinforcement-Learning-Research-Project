@@ -196,14 +196,20 @@ def pick_random_move(state: str) -> int:
 
 def pick_perfect_move(perfect_Q_Table: dict, state: str, player='x', random_perfect_move:bool = True) -> int:
     """This picks a random best possible move"""
-    desired_move = np.nanmax(perfect_Q_Table[state]) #x aims to pick the move with the highest Q-value from all avaliable moves
+
+    q_row = perfect_Q_Table[state].copy() #this is used to make sure that na illigal move is not picked
+    for i, char in enumerate(state):
+        if char != '_':
+            q_row[i] = np.nan
+
+    desired_move = np.nanmax(q_row) #x aims to pick the move with the highest Q-value from all avaliable moves
 
     if player == 'o': #o aims to pick the move with the lowest Q-value from all avaliable moves
-        desired_move = np.nanmin(perfect_Q_Table[state])
+        desired_move = np.nanmin(q_row)
 
     possible_indices = [] #picking a random perfect move
 
-    for i, move in enumerate(perfect_Q_Table[state]): #go through each move
+    for i, move in enumerate(q_row): #go through each move
         if move == desired_move:
             possible_indices.append(i) #add it to the list
 
@@ -382,23 +388,21 @@ def play_the_game_learning(Q_Table, tau=np.e, player='x', perfect_opponent=False
         result = check_result(state) #check if the result is now terminal
     return queue, result
 
-def play_the_game_random(Q_Table, player='x'):
-    """Playes the randomly from both sides game and returns a queue of tuples"""
+def play_the_game_random():
+    """Playes the randomly from both sides game and returns the results of the game"""
     state = "_________"
     move_number = 0
     result = 2
-    player_index = 0
-    oppostion = 'o'
 
 
     while result == 2: #While the game is still going
-        if (move_number % 2) == player_index: #x
+        if (move_number % 2) == 0: #x
             action = pick_random_move(state) #plays a random move
-            state = update_board(state, action, player) 
+            state = update_board(state, action, 'x') 
 
         else: #o
             action = pick_random_move(state) #plays a random move
-            state = update_board(state, action, oppostion)
+            state = update_board(state, action, 'o')
 
         move_number += 1
 
@@ -413,7 +417,7 @@ def play_the_game_two_Q_Tables(Q_Table_X, Q_Table_O, strategy='perfect', tau=np.
     result = 2
 
     while result == 2: #While the game is still going
-        display_state(state)
+
         if (move_number % 2) == 0: #x
             if strategy == 'perfect':
                 action = pick_perfect_move(Q_Table_X, state, 'x', True) #plays a perfect move
@@ -431,7 +435,7 @@ def play_the_game_two_Q_Tables(Q_Table_X, Q_Table_O, strategy='perfect', tau=np.
         move_number += 1
 
         result = check_result(state) #checks if the result is terminal
-    print('Game Over')
+
     return result
 
 
@@ -455,7 +459,6 @@ def calculate_alpha(turn) -> float:
 
 BATCH_SIZE = 10
 NUMBER_OF_BATCHES = 10000
-
 
 def perform_training(player, opponent_type='perfect',number_of_batches=NUMBER_OF_BATCHES, batch_size=BATCH_SIZE, display_training=True,
                       alpha_func=calculate_alpha, tau_func=calculate_tau, result_frequency=50):
@@ -525,5 +528,18 @@ def Q_Table_match(Q_Table_X, Q_Table_O, number_of_games=1000, strategy='perfect'
         result = play_the_game_two_Q_Tables(Q_Table_X, Q_Table_O, strategy, tau) #plays the game
 
         counter[result] += 1 #adds one to the counter
+
+    return counter
+
+
+def play_random_match(number_of_games=1000):
+    """"plays a match where both players move randomly and returns the results"""
+    counter = np.zeros(3) #this will be returned as the score
+
+    for game in range(number_of_games):
+
+        result = play_the_game_random()
+
+        counter[result] += 1
 
     return counter
