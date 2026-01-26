@@ -564,7 +564,7 @@ def Q_Table_match(Q_Table_X, Q_Table_O, number_of_games=1000, strategy='perfect'
 
 
 def Q_Table_vs_policy_match(Q_Table, player, number_of_games=1000, strategy='perfect'):
-    """Let's a Q-Table play against a certain policy (Q_table of x trainied on perfect, vs random O, etc)"""
+    """Let's a Q-Table play against a certain policy (Q_table of x trainied on perfect, vs random O, etc) and returns the results"""
 
     counter = np.zeros(3) #this will be returned as the score
     perfect_Q_Table = import_perfect_Q_Table()
