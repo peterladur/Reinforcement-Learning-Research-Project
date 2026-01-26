@@ -497,7 +497,7 @@ def perform_training(player, opponent_type='perfect',number_of_batches=NUMBER_OF
 
         Q_Table = learn_from_queue(Q_Table, game_queue, alpha, player) #learn (updates the Q_Table)
 
-        if batch_number % 200 == 0: #every hundred values, displays score
+        if batch_number % 50 == 0: #every hundred values, displays score
             counter_final_values.append(counter)
 
             if display_training:
