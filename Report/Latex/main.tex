@@ -124,8 +124,8 @@ As agents learn their drawrate or winrate depending on if they are playing again
 The values of hyperparameters $\tau$ and $\alpha$  matter significantly. Different models for $\tau$ and $\alpha$ have been tested and two models are proposed as best candidates as seen in 
 
 \begin{align}
-    \alpha(\text{turn}, a) = \alpha_{inital} \cdot \frac{1}{1 + a \cdot \text{turn}}\\
-    \tau(\text{turn}, \text{total games}, t) = 1 + (t - 1) \cdot (\frac{\text{turn}}{\text{total games}})^{3}
+    \alpha(\text{decay rate}) = \alpha_{inital} \cdot e^{-\text{decay rate} \times \text{game number}}\\
+    \tau(\text{growth rate}) = \text{Maximum Rate}^{((\frac{\text{game number}}{\text{total games}})^{\text{growth rate}})}
 \end{align}
 
 In order to pick out the best parameters $a$ and $t$ for $\alpha$ and $\tau$ respectively, a range of $a$ and $t$ was picked and an agent was trained for each combination as seen in Figure \ref{x_vs_perfect_range_of_params_1.png} (This is actually a wrong figure, the right figure is generating overnight (cause training takes a while) but the plot would be similar).

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  25 JAN 2026 23:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  26 JAN 2026 22:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -396,7 +396,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
-<../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png, id=47, 1192.455
+<../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png, id=48, 1192.455
 pt x 787.94376pt>
 File: ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png Graphic fil
 e (type png)
@@ -407,7 +407,7 @@ ple.png  used on input line 186.
 [8
 
 ]
-<../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png, id=51, 675.5
+<../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png, id=52, 675.5
 2374pt x 447.6725pt>
 File: ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png Graphic 
 file (type png)
@@ -451,15 +451,16 @@ sr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
 /local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
 ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
 al/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
-/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
-xlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
-e/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (13 pages, 370084 bytes).
+/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/te
+xlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texli
+ve/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/
+2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
+025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (13 pages, 381708 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 131 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
