@@ -365,7 +365,6 @@ def play_the_game_learning(Q_Table, tau=np.e, player='x', perfect_opponent=False
         oppostion = 'x'
 
     while result == 2: #While the game is still going
-
         if (move_number % 2) == player_index: #if it's the turn of the learning player
             action = pick_learning_move(Q_Table, state, tau, player) #play a learning move
             queue.append((state, action)) #record the state and the action take
@@ -414,6 +413,7 @@ def play_the_game_two_Q_Tables(Q_Table_X, Q_Table_O, strategy='perfect', tau=np.
     result = 2
 
     while result == 2: #While the game is still going
+        display_state(state)
         if (move_number % 2) == 0: #x
             if strategy == 'perfect':
                 action = pick_perfect_move(Q_Table_X, state, 'x', True) #plays a perfect move
@@ -431,6 +431,7 @@ def play_the_game_two_Q_Tables(Q_Table_X, Q_Table_O, strategy='perfect', tau=np.
         move_number += 1
 
         result = check_result(state) #checks if the result is terminal
+    print('Game Over')
     return result
 
 
