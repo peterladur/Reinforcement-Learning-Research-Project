@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  25 JAN 2026 21:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  25 JAN 2026 23:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -342,7 +342,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--96
 [4
 
 ]
-<../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png, id=27, 570.
+<../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png, id=28, 570.
 2103pt x 327.3831pt>
 File: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png Graphic
  file (type png)
@@ -351,17 +351,82 @@ Package pdftex.def Info: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distrib
 ution_1.png  used on input line 118.
 (pdftex.def)             Requested size: 276.00105pt x 158.4659pt.
  [5 <../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png>]
-[6]
-Chapter 4.
-[7
+<../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png, id=38, 5
+98.3956pt x 617.9085pt>
+File: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png Grap
+hic file (type png)
+<use ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png>
+Package pdftex.def Info: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_o
+f_params_1.png  used on input line 135.
+(pdftex.def)             Requested size: 276.00105pt x 285.00507pt.
 
-]
-Chapter 5.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (7.43942pt too wide) in paragraph at lines 161--161
+[]\OT1/cmr/bx/n/14.4 Theoretical Q-Table com-pared to RL Q-Table 
+ []
+
+[6 <../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png>]
+[7]
+Chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+<../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png, id=47, 1192.455
+pt x 787.94376pt>
+File: ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png Graphic fil
+e (type png)
+<use ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png>
+Package pdftex.def Info: ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_exam
+ple.png  used on input line 186.
+(pdftex.def)             Requested size: 276.00105pt x 182.36543pt.
 [8
 
 ]
+<../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png, id=51, 675.5
+2374pt x 447.6725pt>
+File: ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png Graphic 
+file (type png)
+<use ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png>
+Package pdftex.def Info: ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_e
+xample.png  used on input line 194.
+(pdftex.def)             Requested size: 276.00105pt x 182.91164pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png>] [10 <../../
+Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png (PNG copy)>]
+Chapter 5.
+[11
+
+]
 Chapter 6.
-[9
+[12
 
 ] (./main.aux)
  ***********
@@ -370,13 +435,13 @@ L3 programming layer <2025-11-06>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 6882 strings out of 467538
- 112223 string characters out of 5419551
+ 6914 strings out of 467538
+ 114183 string characters out of 5419551
  539006 words of memory out of 5000000
- 35732 multiletter control sequences out of 15000+600000
- 638079 words of font info for 80 fonts, out of 8000000 for 9000
+ 35763 multiletter control sequences out of 15000+600000
+ 638425 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,18n,83p,765b,1259s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,18n,83p,963b,1259s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -389,11 +454,12 @@ al/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
 /texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
 xlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (10 pages, 169310 bytes).
+ve/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
+e/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (13 pages, 370084 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 126 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

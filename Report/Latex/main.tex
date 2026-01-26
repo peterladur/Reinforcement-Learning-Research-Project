@@ -17,7 +17,7 @@
 \maketitle
  
 \chapter{Introduction}
-The aim of this project is to explore Q-Learning in the context of tic-tac-toe and other applications using python. Theoretical Q-Table was generated using the ``minimax'' algorithm, and was compared to Q-Tables generated through training against both, random and perfect opponent. Results of agents trained on different policies playing against each other were recorded. How hyperparameters ($\alpha$, $\tau$) affect training results was investigated and an optimal function for hyperparameters was proposed. Deep-Q-Learning was investigated in the context of different games in the ``Open-AI gymnasium''. 
+The aim of this project is to explore Q-Learning in the context of tic-tac-toe and other applications using python. Theoretical Q-Table was generated using the ``minimax'' algorithm, and was compared to Q-Tables generated through training against both, random and perfect opponent. Results of agents trained on different policies playing against each other were recorded. How hyperparameters ($\alpha$, $\tau$) affect training results was investigated and an optimal function for hyperparameters was proposed. Deep-Q-Learning was investigated in the context of different games in the ``Open-AI gymnasium'' (\textit{I know that this is unlikely but if I finish the report and still have some time left over, I will try playing around with another application of Deep Q-Learning such as the stock market}). 
 
 \chapter{Background}
 \section{Q-Table}
@@ -56,7 +56,7 @@ Where:
     \item $r$ is the immidiate reward for achiveing a state
 \end{itemize}
 
-The learning rate $\alpha$ determines how much does the new information replace the already known information. A learning rate of $1$ would that each time training iteration the $Q(s, a)$ is completely replaced by $(r + \gamma \cdot \max_{a}{Q(s_{t + 1}, a)})$. A learning rate of $0$ would imply that $Q(s, a)$ is not affected by training any more. The learning rate can be adjusted during training as the model becomes more stable.\\
+The learning rate $\alpha$ determines how much does the new information replace the already known information. A learning rate of $1$ would mean that each training iteration the $Q(s, a)$ is completely replaced by $(r + \gamma \cdot \max_{a}{Q(s_{t + 1}, a)})$. A learning rate of $0$ would imply that $Q(s, a)$ is not affected by training at all. The learning rate can be adjusted during training as the model becomes more stable.\\
 
 The immidiate reward in the context of tic-tac-toe is $1$ for a game that is won by \text{X}, $0$ for a game that is drawn and $-1$ for a game that is won by \text{O}.
 
@@ -85,7 +85,7 @@ for parent_state in parent_states:
             Q_Table[child_state] = [game_result] * 9
         else:
             \\min or max depends on whether it's x/o removed respectively 
-            Q_Table[child_state][index of x/o] = max/min(Q_Table[parent_state])  
+            Q_Table[child_state][index of x/o] = min/max(Q_Table[parent_state])  
 
             parent_states = child states
 \end{lstlisting}
@@ -111,7 +111,7 @@ During the Q-Learning algorihtm batches of games were played. The agent would ch
 \label{non terminal state update}
 \end{align}
 
-As agents learn their drawrate or winrate depending on if they are playing against a perfect or random opponent increases in the form of the decaying exponential as seen in . \textbf{X} learns against optimal \textbf{O} the draws increase in the form of a decaying exponential draws \% = $e^{-k \cdot \text{games played}}$ as seen in Figure \ref{fig:x_vs_perfect_distribution_1}.  
+As agents learn their drawrate or winrate depending on if they are playing against a perfect or random opponent increases in the form of the decaying exponential. As \textbf{X} learns against optimal \textbf{O} the draws increase in the form of a decaying exponential draws \% = $e^{-k \cdot \text{games played}}$ as seen in Figure \ref{fig:x_vs_perfect_distribution_1}.  
 
 \begin{figure}[h]
     \centering
@@ -127,6 +127,15 @@ The values of hyperparameters $\tau$ and $\alpha$  matter significantly. Differe
     \alpha(\text{turn}, a) = \alpha_{inital} \cdot \frac{1}{1 + a \cdot \text{turn}}\\
     \tau(\text{turn}, \text{total games}, t) = 1 + (t - 1) \cdot (\frac{\text{turn}}{\text{total games}})^{3}
 \end{align}
+
+In order to pick out the best parameters $a$ and $t$ for $\alpha$ and $\tau$ respectively, a range of $a$ and $t$ was picked and an agent was trained for each combination as seen in Figure \ref{x_vs_perfect_range_of_params_1.png} (This is actually a wrong figure, the right figure is generating overnight (cause training takes a while) but the plot would be similar).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{"../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png"} % Path to your image
+    \caption{After training \textbf{X} on $10000$ batches of $10$ games, the highest performing values for parameters $a$ and $t$ are $0.00000001$ and $10^{6}$ respectively}
+    \label{x_vs_perfect_range_of_params_1.png}
+\end{figure}
 
 
 \section{Optimal and non optimal opponent}
@@ -149,14 +158,43 @@ The values of hyperparameters $\tau$ and $\alpha$  matter significantly. Differe
     \label{tab:3x3_example}
 \end{table}
 
+\section{Theoretical Q-Table compared to RL Q-Table}
 
 \chapter{Deep Q-Learning}
+\textbf{Note:} AI was slightly used for the creating of the library, specifically it helped to create the function handling the backpropogation and the function handling the loss function\\\\
 
+\noindent
+\textbf{Note:} Although the library was mostly self made, in order to quickly test if it works (instead of spending a lot of time writing a game myself only to discover I have made an error with my neural network structure), I have made AI implement my library using 2 games made by Open-AI for training agents, ``cart pole'' and ``lunar lander''\\\
+
+The main disadvantage of traditional Q-Learning is that it only applies to discrete states. If the input is continuous, then it will no longer work, as the Q-Table would be infinitely large. This problem is solved by Deep Q-Learning, instead of a Q-Table giving discrete q-values for actions, a neural network predicts the q-values instead.\\\\
+
+A simple library involving numpy arrays was made in order to allow deep q-learning training.
 \section{Neural Network and the loss fucntion}
+
+\begin{align}
+    \text{Loss function logic goes here}
+\end{align}
+
+\begin{align}
+    \text{Backpropogation matrix calculus goes here}
+\end{align}
 
 \section{cart-pole game}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{"../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png"} % Path to your image
+    \caption{The library I made is able to train a neural network to control a cart balancing a pole. The neural network takes in 4 parameters and generates 2 outputs.}
+    \label{fig:CartPole-v1_example.png}
+\end{figure}
+
 \section{moon-landing game}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{"../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png"} % Path to your image
+    \caption{The library I made is able to train a neural network to control a space ship landing on the moon. The neural network takes in 8 parameters and generates 4 outputs.}
+    \label{fig:LunarLander-v3_example.png}
+\end{figure}
 
 \chapter{Conclusion}
 
