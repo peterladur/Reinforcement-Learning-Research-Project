@@ -467,6 +467,7 @@ def play_the_game_Q_Table_vs_policy(Q_Table, player, strategy, perfect_Q_Table):
         move_number += 1 
 
         result = check_result(state) #check if the result is now terminal
+
     return result
 
 
@@ -558,7 +559,7 @@ def Q_Table_match(Q_Table_X, Q_Table_O, number_of_games=1000, strategy='perfect'
 
         result = play_the_game_two_Q_Tables(Q_Table_X, Q_Table_O, strategy, tau) #plays the game
 
-        counter[result] += 1 #adds one to the counter
+        counter[1 + result] += 1 #adds one to the counter
 
     return counter
 
@@ -574,7 +575,7 @@ def Q_Table_vs_policy_match(Q_Table, player, number_of_games=1000, strategy='per
 
         result = play_the_game_Q_Table_vs_policy(Q_Table, player, strategy, perfect_Q_Table)
 
-        counter[result] += 1
+        counter[1 + result] += 1
 
     return counter
 
@@ -586,6 +587,6 @@ def play_random_match(number_of_games=1000):
 
         result = play_the_game_random()
 
-        counter[result] += 1
+        counter[1 + result] += 1
 
     return counter
