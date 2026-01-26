@@ -423,9 +423,9 @@ def play_the_game_two_Q_Tables(Q_Table_X, Q_Table_O, strategy='perfect', tau=np.
 
         else: #o
             if strategy == 'perfect':
-                action = pick_perfect_move(Q_Table_X, state, 'o', True) #plays a perfect move
+                action = pick_perfect_move(Q_Table_O, state, 'o', True) #plays a perfect move
             else:
-                action = pick_learning_move(Q_Table_X, state, tau, 'o') #plays a softmax move
+                action = pick_learning_move(Q_Table_O, state, tau, 'o') #plays a softmax move
             state = update_board(state, action, 'o')
 
         move_number += 1
