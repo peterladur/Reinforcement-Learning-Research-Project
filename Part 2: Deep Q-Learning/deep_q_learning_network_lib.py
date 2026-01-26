@@ -225,3 +225,11 @@ def load_model(location, model_name):
     """loads the parameters"""
     weights = np.load(f"{location + '/' + model_name}/weights.npy")
     biases = np.load("{location + '/' + model_name}/biases.npy")
+
+
+def pick_action_softmax(output_values, tau):
+    """picks a random action using the boltzman function"""
+
+    probability_weights = np.power(np.e, - tau * output_values)  #generates probability weights using softmax(values)
+    pick = np.random.choice(range(len(probability_weights)), p=probability_weights/probability_weights.sum()) #picks random move using weights
+    return pick

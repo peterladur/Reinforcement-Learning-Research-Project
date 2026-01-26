@@ -1,6 +1,7 @@
 import numpy as np
 import gymnasium as gym
 import random
+from gymnasium.wrappers import RecordVideo
 import deep_q_learning_network_lib as dqn
 
 # --- 1. Hyperparameters ---
@@ -15,9 +16,9 @@ EPSILON_DECAY = 0.995
 TARGET_UPDATE_FREQ = 10  # How many episodes before syncing target net
 
 # NN Structure: 4 inputs (state), two hidden layers of 24, 2 outputs (actions)
-NN_STRUCTURE = [4, 32, 32, 2]
+NN_STRUCTURE = [4, 24, 24, 2]
 FUNCTIONS = [dqn.ReLU, dqn.ReLU, dqn.identity]
-DERIVS = [dqn.deriv_ReLU, dqn.deriv_ReLU, dqn.deriv_identity]
+DERIVS = [dqn.deriv_ReLU,  dqn.deriv_ReLU, dqn.deriv_identity]
 
 # --- 2. Experience Replay Buffer ---
 class ReplayBuffer:
@@ -66,7 +67,8 @@ for i in range(5): # Watch 5 games
         # Use your trained weights to pick the best action
         s_vec = state.reshape(-1, 1)
         A_list, _ = dqn.forward_propogate(main_W, main_b, s_vec, FUNCTIONS)
-        action = np.argmax(A_list[-1])
+        
+        action = dqn.pick_action_softmax(A_list[-1].flatten(), 2)
         
         state, reward, terminated, truncated, _ = test_env.step(action)
         done = terminated or truncated
@@ -89,7 +91,7 @@ for episode in range(EPISODES):
             # Reshape state to (4, 1) for your library
             s_vec = state.reshape(-1, 1)
             A_list, _ = dqn.forward_propogate(main_W, main_b, s_vec, FUNCTIONS)
-            action = np.argmax(A_list[-1])
+            action = dqn.pick_action_softmax(A_list[-1].flatten(), -2)
 
         # Step in Environment
         next_state, reward, terminated, truncated, _ = env.step(action)
@@ -131,24 +133,37 @@ env.close()
 
 print(scores)
 
-print("\n--- Training Complete! Starting Victory Lap ---")
-test_env = gym.make(ENV_NAME, render_mode="human")
+print("\n--- Training Complete! Recording Victory Lap ---")
 
-for i in range(5): # Watch 5 games
+# 1. Create the environment with "rgb_array" mode (required for recording)
+test_env = gym.make(ENV_NAME, render_mode="rgb_array")
+
+# 2. Wrap the environment with RecordVideo
+# video_folder: where to save the file
+# episode_trigger: lambda x: True means "record every episode we play now"
+test_env = RecordVideo(
+    test_env, 
+    video_folder="videos/CartPole", 
+    episode_trigger=lambda episode_id: True,
+    name_prefix="final_run"
+)
+
+for i in range(3): # Record 3 games
     state, _ = test_env.reset()
     done = False
     score = 0
     
     while not done:
-        # Use your trained weights to pick the best action
         s_vec = state.reshape(-1, 1)
         A_list, _ = dqn.forward_propogate(main_W, main_b, s_vec, FUNCTIONS)
-        action = np.argmax(A_list[-1])
+        action = dqn.pick_action_softmax(A_list[-1].flatten(), -2)
         
         state, reward, terminated, truncated, _ = test_env.step(action)
         done = terminated or truncated
-        score += reward #type: ignore
+        score += float(reward) 
         
-    print(f"Victory Lap {i+1} Score: {score}")
+    print(f"Recorded Episode {i+1} - Score: {score:.2f}")
 
+# 3. CRITICAL: You must call .close() to "flush" the video buffer and save the file
 test_env.close()
+print("Videos saved to: videos/lunar_lander_results")
