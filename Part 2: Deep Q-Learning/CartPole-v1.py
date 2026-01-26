@@ -70,7 +70,7 @@ for i in range(5): # Watch 5 games
         
         state, reward, terminated, truncated, _ = test_env.step(action)
         done = terminated or truncated
-        score += reward
+        score += reward #type: ignore
         
     print(f"Victory Lap {i+1} Score: {score}")
 
@@ -101,7 +101,7 @@ for episode in range(EPISODES):
         # Save to Memory
         memory.push(state, action, reward, next_state, done)
         state = next_state
-        total_reward += reward
+        total_reward += reward #type: ignore
 
         # Train Step
         if len(memory) > BATCH_SIZE:
@@ -147,7 +147,7 @@ for i in range(5): # Watch 5 games
         
         state, reward, terminated, truncated, _ = test_env.step(action)
         done = terminated or truncated
-        score += reward
+        score += reward #type: ignore
         
     print(f"Victory Lap {i+1} Score: {score}")
 
