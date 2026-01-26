@@ -281,9 +281,6 @@ def display_counter(counter):
     print(f"{counter[0]/total:.2f}%   {counter[1]/total:.2f}%   {counter[2]/total:.2f}%")
 
 
-# %%
-x = "xxo______"
-pick_random_move(x)
 
 # %%
 
@@ -409,6 +406,34 @@ def play_the_game_random(Q_Table, player='x'):
         result = check_result(state) #checks if the result is terminal
     return result
 
+def play_the_game_two_Q_Tables(Q_Table_X, Q_Table_O, strategy='perfect', tau=np.e):
+    """plays one game using either 'perfect' or 'softmax' strategy for each player"""
+
+    state = "_________"
+    move_number = 0
+    result = 2
+
+    while result == 2: #While the game is still going
+        if (move_number % 2) == 0: #x
+            if strategy == 'perfect':
+                action = pick_perfect_move(Q_Table_X, state, 'x', True) #plays a perfect move
+            else:
+                action = pick_learning_move(Q_Table_X, state, tau, 'x') #plays a softmax move
+            state = update_board(state, action, 'x') 
+
+        else: #o
+            if strategy == 'perfect':
+                action = pick_perfect_move(Q_Table_X, state, 'o', True) #plays a perfect move
+            else:
+                action = pick_learning_move(Q_Table_X, state, tau, 'o') #plays a softmax move
+            state = update_board(state, action, 'o')
+
+        move_number += 1
+
+        result = check_result(state) #checks if the result is terminal
+    return result
+
+
 def calculate_tau(turn) -> float:
     """calculates tau
     tau can change to prioritise exploitation over exploration"""
@@ -484,3 +509,20 @@ def perform_training(player, opponent_type='perfect',number_of_batches=NUMBER_OF
 
 
 
+def Q_Table_match(Q_Table_X, Q_Table_O, number_of_games=1000, strategy='perfect', tau=np.e):
+    """Lets two Q-Table play a match against each other and returns results
+    
+    strategy is either:
+    'perfect' meaning the largest Q-Table value is used, 
+    'softmax' meaning moves are picked with weighted unequal probability
+    """
+
+    counter = np.zeros(3) #this will be returned as the score
+
+    for game in range(number_of_games):
+
+        result = play_the_game_two_Q_Tables(Q_Table_X, Q_Table_O, strategy, tau) #plays the game
+
+        counter[result] += 1 #adds one to the counter
+
+    return counter
