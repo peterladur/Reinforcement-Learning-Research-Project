@@ -143,7 +143,7 @@ def change_to_numpy(actions):
 def import_perfect_Q_Table(filename="data_exports/perfect_Q_Table.json"):
     """"Imports the perfect Q_Table that was generated using a different scirpt"""
 
-    with open("data_exports/perfect_Q_Table.json", "r", encoding="utf-8") as f:
+    with open(filename, "r", encoding="utf-8") as f:
         perfect_Q_Table = json.load(f)
 
 
