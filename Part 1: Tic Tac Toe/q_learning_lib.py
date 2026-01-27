@@ -61,6 +61,7 @@ def check_validity(state: str) -> bool:
     return True
 
 def check_result(state: str) -> int:
+    """checks what is the result of this state return game result (-1, 0, 1) or 2 if the game is still going"""
     #check diagonals
     if ((state[0] + state[4] + state[8]) == "ooo") or ((state[6] + state[4] + state[2]) == "ooo"):
         return -1
