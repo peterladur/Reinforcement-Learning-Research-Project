@@ -7,6 +7,7 @@
 \usepackage{comment}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{coffeestains}
 
 \title{\textbf{Q-Learning}}
 \author{Peter (Petr) Ladur\\\\56445760}
@@ -15,8 +16,8 @@
 
 \begin{document}
 \maketitle
- 
 \chapter{Introduction}
+%\coffeestainA{0.9}{0.85}{-25}{5cm}{1.3cm} coffee stain lol
 The aim of this project is to explore Q-Learning in the context of tic-tac-toe and other applications using python. Theoretical Q-Table was generated using the ``minimax'' algorithm, and was compared to Q-Tables generated through training against both, random and perfect opponent. Results of agents trained on different policies playing against each other were recorded. How hyperparameters ($\alpha$, $\tau$) affect training results was investigated and an optimal function for hyperparameters was proposed. Deep-Q-Learning was investigated in the context of different games in the ``Open-AI gymnasium'' (\textit{I know that this is unlikely but if I finish the report and still have some time left over, I will try playing around with another application of Deep Q-Learning such as the stock market}). 
 
 \chapter{Background}
@@ -133,10 +134,14 @@ In order to pick out the best parameters $a$ and $t$ for $\alpha$ and $\tau$ res
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{"../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png"} % Path to your image
-    \caption{After training \textbf{X} on $10000$ batches of $10$ games, the highest performing values for parameters $a$ and $t$ are $0.00000001$ and $10^{6}$ respectively}
+    \caption{After training \textbf{X} on $1000$ batches of $10$ games, the highest performing values for parameters \textit{growth rate} are $10^{\frac{-1}{3}}$ and \textit{decay rate} between $10^{-4}$ and $10^{-10}$  respectively}.
     \label{x_vs_perfect_range_of_params_1.png}
 \end{figure}
 
+\begin{align}
+    \alpha(\text{decay rate}) = \alpha_{inital} \cdot e^{-10^{-7} \times \text{game number}}\\
+    \tau(\text{growth rate}) = \text{1000}^{((\frac{\text{game number}}{\text{total games}})^{10^{\frac{-1}{3}}})}
+\end{align}
 
 \section{Optimal and non optimal opponent}
 
@@ -161,6 +166,46 @@ In order to pick out the best parameters $a$ and $t$ for $\alpha$ and $\tau$ res
 
 \section{Theoretical Q-Table compared to RL Q-Table}
 
+The theoretical Q-Table generated using the minimax algorihtm has differences to the Q-Table generated through RL. \\\\
+
+When generating the Q-Table of \textbf{X} playing against a perfect opponent, \textbf{O} will never end up in a loosing position. Hence states where \textbf{O} has a chance to loose are never explored and much of the RL generated Q-Table is unfilled. For the states which are explored the values of the RL generated Q-Table are similar to theoretical values as seen in Table \ref{tab:Q-Table comparison for ____o_oxx} \\\\
+
+When generating the Q-Table of \textbf{X} playing against a random opponent, more states are explored, and two out of three actions which lead to a garanteed win (assuming perfect play), were given the q-value of 1 as seen in Table \ref{tab:Q-Table comparison for _______ox}. The reason why the action (2, 2) is given a q-value of 0, is likely due to exploration vs exploitation.
+
+
+%Q-Table example
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{2.5}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
+% Draws top line starting from 2nd column
+\cline{2-10}
+\multicolumn{1}{c|}{} & (1, 1) & (1, 2) & (1, 3) & (2, 1) & (2, 2) & (2, 3) & (3, 1) & (3, 2) & (3, 3) \\ \hline
+\makecell{Theoretical Q-Table \\(perfect opponent)}& \cellcolor{black!60}& -1 & -1 & 0 & -1& \cellcolor{black!60} & -1 & \cellcolor{black!60} & \cellcolor{black!60}\\ \hline
+RL Q-Table & \cellcolor{black!60}& 
+-0.87 & -0.78 & 0 & -0.94 & \cellcolor{black!60} & -0.75 & \cellcolor{black!60} & \cellcolor{black!60}\\ \hline
+\end{tabular}
+% 3. ADD THE CAPTION AND LABEL HERE
+\caption{The theoretical and RL Q-Table for x playing against perfect opponent, give similar values for the state }
+\label{tab:Q-Table comparison for ____o_oxx} 
+\end{table}
+
+%Q-Table example
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{2.5}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
+% Draws top line starting from 2nd column
+\cline{2-10}
+\multicolumn{1}{c|}{} & (1, 1) & (1, 2) & (1, 3) & (2, 1) & (2, 2) & (2, 3) & (3, 1) & (3, 2) & (3, 3) \\ \hline
+\makecell{Theoretical Q-Table \\(perfect opponent)}& 0 & 0 & 1 & 0 & 1 & 1  & 0 & \cellcolor{black!60} & \cellcolor{black!60}\\ \hline
+\makecell{Theoretical Q-Table \\(random opponent)}& 0.47 & 0.47 & 0.57 & 0.32 & 0.72 & 0.42  & 0.24 & \cellcolor{black!60} & \cellcolor{black!60}\\ \hline
+RL Q-Table & 0.30& 0.20 & 1.00 & 0 & 0 & 1.00 & 0 & \cellcolor{black!60} & \cellcolor{black!60}\\ \hline
+\end{tabular}
+% 3. ADD THE CAPTION AND LABEL HERE
+\caption{The theoretical and RL Q-Table achieve }
+\label{tab:Q-Table comparison for _______ox} 
+\end{table}
 
 
 \chapter{Deep Q-Learning}
