@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  27 JAN 2026 22:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  27 JAN 2026 23:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -522,6 +522,16 @@ File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 s/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+)
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count327
@@ -529,20 +539,20 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -567,13 +577,13 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count334
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -587,7 +597,7 @@ Chapter 1.
 ]
 Chapter 2.
 
-Overfull \hbox (14.94493pt too wide) in paragraph at lines 31--41
+Overfull \hbox (14.94493pt too wide) in paragraph at lines 32--42
  [][] 
  []
 
@@ -595,36 +605,36 @@ Overfull \hbox (14.94493pt too wide) in paragraph at lines 31--41
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
 Excluding 'comment' comment. [3]
 Chapter 3.
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 8
-8.
+9.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 88.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 89.
 
-Overfull \hbox (93.00446pt too wide) in paragraph at lines 88--89
+Overfull \hbox (93.00446pt too wide) in paragraph at lines 89--90
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (129.00482pt too wide) in paragraph at lines 89--91
+Overfull \hbox (129.00482pt too wide) in paragraph at lines 90--92
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
@@ -633,49 +643,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 96--97
 ]
 <../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png, id=31, 570.
 2103pt x 327.3831pt>
-File: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png Graphic
- file (type png)
-<use ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png>
-Package pdftex.def Info: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distrib
-ution_1.png  used on input line 119.
-(pdftex.def)             Requested size: 276.00105pt x 158.4659pt.
- [5 <../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png>]
+ [5]
 <../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png, id=41, 6
 26.5809pt x 626.5809pt>
-File: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png Grap
-hic file (type png)
-<use ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png>
-Package pdftex.def Info: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_o
-f_params_1.png  used on input line 136.
-(pdftex.def)             Requested size: 276.00105pt x 276.00238pt.
-
-[6 <../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png>]
-Overfull \hbox (7.43942pt too wide) in paragraph at lines 167--167
+ [6]
+Overfull \hbox (7.43942pt too wide) in paragraph at lines 168--168
 []\OT1/cmr/bx/n/14.4 Theoretical Q-Table com-pared to RL Q-Table 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
 
-Overfull \hbox (82.48392pt too wide) in paragraph at lines 180--189
+Overfull \hbox (82.48392pt too wide) in paragraph at lines 181--190
  [][] 
  []
 
@@ -683,7 +680,7 @@ Overfull \hbox (82.48392pt too wide) in paragraph at lines 180--189
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (82.48392pt too wide) in paragraph at lines 197--206
+Overfull \hbox (82.48392pt too wide) in paragraph at lines 198--207
  [][] 
  []
 
@@ -693,55 +690,37 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [7] [8]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
+Underfull \hbox (badness 10000) in paragraph at lines 215--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--216
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
-
+Overfull \hbox (2.66626pt too wide) in paragraph at lines 221--221
+[]\OT1/cmr/bx/n/14.4 Neural Net-work struc-ture, back-pro-poga-tion,
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
-
- []
-
-<../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png, id=55, 1192.455
-pt x 787.94376pt>
-File: ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png Graphic fil
-e (type png)
-<use ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png>
-Package pdftex.def Info: ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_exam
-ple.png  used on input line 234.
-(pdftex.def)             Requested size: 276.00105pt x 182.36543pt.
 [9
 
 ]
-<../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png, id=59, 675.5
+<../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png, id=59, 1192.455
+pt x 787.94376pt>
+<../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png, id=60, 675.5
 2374pt x 447.6725pt>
-File: ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png Graphic 
-file (type png)
-<use ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png>
-Package pdftex.def Info: ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_e
-xample.png  used on input line 242.
-(pdftex.def)             Requested size: 276.00105pt x 182.91164pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10 <../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png>] [11 <../..
-/Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png (PNG copy)>]
+[10] [11]
 Chapter 5.
 [12
 
@@ -756,13 +735,13 @@ L3 programming layer <2025-11-06>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 17294 strings out of 467538
- 340719 string characters out of 5419551
- 1551640 words of memory out of 5000000
- 45924 multiletter control sequences out of 15000+600000
- 638425 words of font info for 81 fonts, out of 8000000 for 9000
+ 17517 strings out of 467538
+ 344439 string characters out of 5419551
+ 1551662 words of memory out of 5000000
+ 46129 multiletter control sequences out of 15000+600000
+ 644424 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,18n,108p,18340b,1259s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,18n,108p,18355b,1259s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -770,6 +749,7 @@ Here is how much of TeX's memory you used:
 usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
 sr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
 /local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
+ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/l
 ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
 al/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
 /texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/te
@@ -778,11 +758,13 @@ ve/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
 e/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/
 2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/20
 25/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/202
-5/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (14 pages, 313415 bytes).
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/
+2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (14 pages, 235927 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
+ 154 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

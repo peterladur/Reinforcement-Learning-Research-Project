@@ -6,8 +6,9 @@
 \usepackage{makecell} % Required for multi-line cells\
 \usepackage{comment}
 \usepackage{listings}
-\usepackage{graphicx}
+\usepackage[draft]{graphicx}
 \usepackage{coffeestains}
+\usepackage{bm}
 
 \title{\textbf{Q-Learning}}
 \author{Peter (Petr) Ladur\\\\56445760}
@@ -17,7 +18,7 @@
 \begin{document}
 \maketitle
 \chapter{Introduction}
-%\coffeestainA{0.9}{0.85}{-25}{5cm}{1.3cm} coffee stain lol
+\coffeestainA{0.9}{0.85}{-25}{5cm}{1.3cm} 
 The aim of this project is to explore Q-Learning in the context of tic-tac-toe and other applications using python. Theoretical Q-Table was generated using the ``minimax'' algorithm, and was compared to Q-Tables generated through training against both, random and perfect opponent. Results of agents trained on different policies playing against each other were recorded. How hyperparameters ($\alpha$, $\tau$) affect training results was investigated and an optimal function for hyperparameters was proposed. Deep-Q-Learning was investigated in the context of different games in the ``Open-AI gymnasium'' (\textit{I know that this is unlikely but if I finish the report and still have some time left over, I will try playing around with another application of Deep Q-Learning such as the stock market}). 
 
 \chapter{Background}
@@ -209,19 +210,24 @@ RL Q-Table & 0.30& 0.20 & 1.00 & 0 & 0 & 1.00 & 0 & \cellcolor{black!60} & \cell
 
 
 \chapter{Deep Q-Learning}
-\textbf{Note:} AI was slightly used for the creating of the library, specifically it helped to create the function handling the backpropogation and the function handling the loss function\\\\
+\textbf{Note:} AI was slightly used for the creating of the library, specifically it helped to create the function handling the backpropogation and the function handling the loss function\\
 
 \noindent
-\textbf{Note:} Although the library was mostly self made, in order to quickly test if it works (instead of spending a lot of time writing a game myself only to discover I have made an error with my neural network structure), I have made AI implement my library using 2 games made by Open-AI for training agents, ``cart pole'' and ``lunar lander''\\\
+\textbf{Note:} Although the library was mostly self made, in order to quickly test if it works (instead of spending a lot of time writing a game myself only to discover I have made an error with my neural network structure), I have made AI implement my library using 2 games made by Open-AI for training agents, ``cart pole'' and ``lunar lander''\\
 
-The main disadvantage of traditional Q-Learning is that it only applies to discrete states. If the input is continuous, then it will no longer work, as the Q-Table would be infinitely large. This problem is solved by Deep Q-Learning, instead of a Q-Table giving discrete q-values for actions, a neural network predicts the q-values instead.\\\\
+The main disadvantage of traditional Q-Learning is that it only works well with a small number of discrete states. If the input is continuous, then it will no longer work, as the Q-Table would need to be infinitely large. This problem is solved by Deep Q-Learning, instead of a Q-Table, a neural network is implemented. The network takes in the state in the input layer and returns the q-values in the output layer.\\
 
-A simple library involving numpy arrays was made in order to allow deep q-learning training.
-\section{Neural Network and the loss fucntion}
+I have implemented a simple python, numpy-based library which allows for an implementation of a Deep Q-Network.
+\section{Neural Network structure, backpropogation, loss fucntion}
 
 \begin{align}
-    \text{Loss function logic goes here}
+    \mathbf{a}^{(l+1)} = \sigma \left( \mathbf{W}^{(l)} \mathbf{a}^{(l)} + \mathbf{b}^{(l)} \right)
 \end{align}
+
+\begin{equation}
+    \mathcal{L}(\bm{\theta}) = \mathbb{E}_{(s, a, r, s') \sim \mathcal{D}} \left[ \left( r + \gamma \max_{a'} Q(s', a'; \bm{\theta}^-)- Q(s, a; \bm{\theta}) \right)^2 \right]
+\end{equation}
+
 
 \begin{align}
     \text{Backpropogation matrix calculus goes here}
