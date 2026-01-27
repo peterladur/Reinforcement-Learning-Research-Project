@@ -215,10 +215,12 @@ RL Q-Table & 0.30& 0.20 & 1.00 & 0 & 0 & 1.00 & 0 & \cellcolor{black!60} & \cell
 \noindent
 \textbf{Note:} Although the library was mostly self made, in order to quickly test if it works (instead of spending a lot of time writing a game myself only to discover I have made an error with my neural network structure), I have made AI implement my library using 2 games made by Open-AI for training agents, ``cart pole'' and ``lunar lander''\\
 
-The main disadvantage of traditional Q-Learning is that it only works well with a small number of discrete states. If the input is continuous, then it will no longer work, as the Q-Table would need to be infinitely large. This problem is solved by Deep Q-Learning, instead of a Q-Table, a neural network is implemented. The network takes in the state in the input layer and returns the q-values in the output layer.\\
+The main disadvantage of traditional Q-Learning is that it only works well with a small number of discrete states. If the input is continuous, then it will no longer work, as the Q-Table would need to be infinitely large. This problem is solved by Deep Q-Learning, instead of a Q-Table, a Deep Q-Network (DQN) is implemented. The network takes in the state in the input layer and returns the q-values in the output layer.\\
 
 I have implemented a simple python, numpy-based library which allows for an implementation of a Deep Q-Network.
 \section{Neural Network structure, backpropogation, loss fucntion}
+
+The Deep Q-Network takes in the continuous state such as coordinates or stock prices in the input layer. Then the DQN forward propogates the input through the network and returns the output values with 
 
 \begin{align}
     \mathbf{a}^{(l+1)} = \sigma \left( \mathbf{W}^{(l)} \mathbf{a}^{(l)} + \mathbf{b}^{(l)} \right)
