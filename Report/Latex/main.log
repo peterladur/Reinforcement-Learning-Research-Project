@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  26 JAN 2026 22:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  27 JAN 2026 17:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -364,7 +364,7 @@ f_params_1.png  used on input line 135.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (7.43942pt too wide) in paragraph at lines 161--161
+Overfull \hbox (7.43942pt too wide) in paragraph at lines 162--162
 []\OT1/cmr/bx/n/14.4 Theoretical Q-Table com-pared to RL Q-Table 
  []
 
@@ -372,27 +372,27 @@ Overfull \hbox (7.43942pt too wide) in paragraph at lines 161--161
 [7]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--168
+Underfull \hbox (badness 10000) in paragraph at lines 169--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
@@ -402,7 +402,7 @@ File: ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png Graphic fil
 e (type png)
 <use ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png>
 Package pdftex.def Info: ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_exam
-ple.png  used on input line 186.
+ple.png  used on input line 189.
 (pdftex.def)             Requested size: 276.00105pt x 182.36543pt.
 [8
 
@@ -413,7 +413,7 @@ File: ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png Graphic
 file (type png)
 <use ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png>
 Package pdftex.def Info: ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_e
-xample.png  used on input line 194.
+xample.png  used on input line 197.
 (pdftex.def)             Requested size: 276.00105pt x 182.91164pt.
 
 
@@ -457,7 +457,7 @@ ve/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
 e/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/
 2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
 025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (13 pages, 381708 bytes).
+Output written on main.pdf (13 pages, 381565 bytes).
 PDF statistics:
  131 PDF objects out of 1000 (max. 8388607)
  78 compressed objects within 1 object stream
