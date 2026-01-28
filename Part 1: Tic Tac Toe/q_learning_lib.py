@@ -291,7 +291,7 @@ def display_counter(counter):
 
 # %%
 
-def plot_triplet_ratios(data, batch_size, component_labels=("O win", "draw", "X win"),normalize=True, show=True):
+def plot_triplet_ratios(data, batch_size, number_of_batches, frequency=50, component_labels=("O win", "draw", "X win"),normalize=True, show=True):
     """
     Plot a list of 3-element lists (triplets) that (roughly) sum to 100.
     Produces two plots:
@@ -325,7 +325,7 @@ def plot_triplet_ratios(data, batch_size, component_labels=("O win", "draw", "X 
 
     # Split components
     comp1, comp2, comp3 = arr.T
-    x = np.arange(len(arr))* batch_size * 100  # index (could be time or sample order)
+    x = np.arange(len(arr)) / frequency * batch_size * number_of_batches # index (could be time or sample order)
 
     # --- Plot 1: Stacked area (stackplot) ---
     fig1, ax1 = plt.subplots(figsize=(9, 5))
