@@ -5,7 +5,7 @@ import deep_q_learning_network_lib as dqn
 
 # --- 1. Hyperparameters for LunarLander ---
 ENV_NAME = "LunarLander-v3" # v2 is the standard; v3 is very new/identical in logic
-EPISODES = 500            # LunarLander takes longer to learn than CartPole
+EPISODES = 1000            # LunarLander takes longer to learn than CartPole
 BATCH_SIZE = 64            # Increased for more stable gradients
 GAMMA = 0.99               # High gamma to care more about the final landing
 ALPHA = 0.0005             # Slightly lower learning rate for stability
@@ -109,20 +109,49 @@ for episode in range(EPISODES):
 env.close()
 
 # --- 5. Post-Training Victory Lap ---
-print("\n--- Training Complete! Starting Victory Lap ---")
-test_env = gym.make(ENV_NAME, render_mode="human")
+# --- 5. Post-Training Victory Lap & Video Recording ---
+from gymnasium.wrappers import RecordVideo
+import os
+
+print("\n--- Training Complete! Recording Videos ---")
+
+# Create a directory for videos
+video_folder = "lunar_lander_videos"
+if not os.path.exists(video_folder):
+    os.makedirs(video_folder)
+
+# We must use render_mode="rgb_array" for RecordVideo to work
+test_env = gym.make(ENV_NAME, render_mode="rgb_array")
+
+# The episode_trigger tells the wrapper which episodes to record. 
+# lambda x: True means record every episode in this test loop.
+test_env = RecordVideo(
+    test_env, 
+    video_folder=video_folder, 
+    episode_trigger=lambda episode_id: True,
+    name_prefix="final_result"
+)
 
 for i in range(5):
     state, _ = test_env.reset()
     done = False
     score = 0
+    
     while not done:
+        # Get greedy action from the trained Main Model
         s_vec = state.reshape(-1, 1)
         A_list, _ = dqn.forward_propogate(main_W, main_b, s_vec, FUNCTIONS)
+        
+        # A_list[-1] contains the Q-values for the output layer
         action = np.argmax(A_list[-1])
+        
         state, reward, terminated, truncated, _ = test_env.step(action)
         done = terminated or truncated
-        score += reward # type: ignore
-    print(f"Victory Lap {i+1} Score: {score:.2f}")
+        score += reward
+        
+    print(f"Recorded Episode {i+1} - Score: {score:.2f}")
 
+# Close the environment to ensure the video file is finalized/saved
+test_env.close()
+print(f"Videos saved in: {os.path.abspath(video_folder)}")
 test_env.close()
