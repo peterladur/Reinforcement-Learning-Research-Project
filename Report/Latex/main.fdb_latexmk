@@ -1,10 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1769575206.60009 "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" "main.pdf" "main" 1769575208.80385 0
+["pdflatex"] 1769647240.65037 "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" "main.pdf" "main" 1769647242.63554 0
   "../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png" 1769575205.96086 22721 c0b631cdf8a897b77cf28b2f553e49bc ""
   "../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png" 1769505783.90323 41015 8724aeb5210531fafac8f13878200753 ""
   "../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png" 1769332796.09453 6337 7b54d9f05270e5d9e7eb0289744907c4 ""
   "../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png" 1769333001.1083 61990 d353c78bc642bdad822a212b753850f2 ""
-  "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" 1769513802.60418 14989 0c03fdaaef230e4a34b6df4632948ec5 ""
+  "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" 1769647235.35158 14989 0c03fdaaef230e4a34b6df4632948ec5 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -172,8 +172,8 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1763631524 5541377 0af08d58b046ada1f2a2c7d4825ab417 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1763631673 3635529 f350ced5431f0f4ec1b4e8f85b42e9ea ""
   "/usr/local/texlive/2025/texmf.cnf" 1763631518.12083 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "main.aux" 1769575208.65983 5799 5a860db9aebdf85ed01028e2b8cc6fb8 "pdflatex"
-  "main.tex" 1769513802.60418 14989 0c03fdaaef230e4a34b6df4632948ec5 ""
+  "main.aux" 1769647242.50295 5799 5a860db9aebdf85ed01028e2b8cc6fb8 "pdflatex"
+  "main.tex" 1769647235.35158 14989 0c03fdaaef230e4a34b6df4632948ec5 ""
   (generated)
   "main.aux"
   "main.log"
