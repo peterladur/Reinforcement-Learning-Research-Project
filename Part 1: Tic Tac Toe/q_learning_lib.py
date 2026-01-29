@@ -291,68 +291,53 @@ def display_counter(counter):
 
 # %%
 
-def plot_triplet_ratios(data, batch_size, number_of_batches, frequency=50, component_labels=("O win", "draw", "X win"),normalize=True, show=True):
+def plot_training_results(data, batch_size, result_frequency, component_labels=("O win", "Draw", "X win"), normalize=True):
     """
-    Plot a list of 3-element lists (triplets) that (roughly) sum to 100.
-    Produces two plots:
-      1) Stacked area chart (normalized to 100 if requested)
-      2) Line chart of each component over index
-
-    Parameters
-    ----------
-    data : list[list[float]]
-        Sequence of triplets, e.g. [[20, 40, 40], [10, 40, 50], [8, 38, 54], ...]
-    component_labels : tuple[str, str, str]
-        Names for the three components.
-    normalize : bool
-        If True, each triplet is scaled so its sum is exactly 100.
-        If False, values are plotted as-is.
-    show : bool
-        If True, calls plt.show() at the end.
+    Plots a stacked area chart showing the evolution of game outcomes.
+    
+    Parameters:
+    -----------
+    data : np.array or list
+        The counter_final_values array (shape: N, 3)
+    batch_size : int
+        Number of games per batch (e.g., 10)
+    result_frequency : int
+        How many batches pass between each data recording (e.g., 50)
     """
-    # Validate input
     arr = np.array(data, dtype=float)
-    if arr.ndim != 2 or arr.shape[1] != 3:
-        raise ValueError("`data` must be a 2D array-like with shape (n_samples, 3).")
-
-    # Optionally normalize each row to sum to 100
+    
+    # 1. Normalize to 100% so the stack always fills the Y-axis
     if normalize:
         row_sums = arr.sum(axis=1)
-        # Avoid division by zero; keep rows with sum==0 as zeros
-        with np.errstate(divide='ignore', invalid='ignore'):
-            scale = np.where(row_sums == 0, 0, 100.0 / row_sums)
+        # Avoid division by zero
+        scale = np.divide(100.0, row_sums, out=np.zeros_like(row_sums), where=row_sums!=0)
         arr = (arr.T * scale).T
 
-    # Split components
-    comp1, comp2, comp3 = arr.T
-    x = np.arange(len(arr)) / frequency * batch_size * number_of_batches # index (could be time or sample order)
+    # 2. Fix the X-axis scale
+    # Each entry in 'data' represents (result_frequency * batch_size) games.
+    games_per_record = result_frequency * batch_size
+    num_records = len(arr)
+    x_axis = np.arange(1, num_records + 1) * games_per_record
 
-    # --- Plot 1: Stacked area (stackplot) ---
-    fig1, ax1 = plt.subplots(figsize=(9, 5))
-    colors = ["#4C78A8", "#F58518", "#54A24B"]  # pleasant color palette
-    ax1.stackplot(x, comp1, comp2, comp3, labels=component_labels, colors=colors, alpha=0.9)
-   # ax1.set_title("Stacked Area of Triplet Ratios" + (" (normalized to 100)" if normalize else ""))
-    ax1.set_xlabel("Number of games played")
-    ax1.set_ylabel("Percent")
-    ax1.set_ylim(0, max(100, arr.sum(axis=1).max()))  # ensure room if not normalized
-    ax1.legend(loc="upper right")
-    ax1.grid(True, alpha=0.25)
+    # 3. Create the Plot
+    fig, ax = plt.subplots(figsize=(10, 6))
+    colors = ["#4C78A8", "#F58518", "#54A24B"] # Blue, Orange, Green
+    
+    # We transpose arr to get the three columns (O-win, Draw, X-win)
+    ax.stackplot(x_axis, arr[:, 0], arr[:, 1], arr[:, 2], 
+                 labels=component_labels, colors=colors, alpha=0.8)
 
-    # --- Plot 2: Line chart for each component ---
-    fig2, ax2 = plt.subplots(figsize=(9, 5))
-    ax2.plot(x, comp1, label=component_labels[0], color=colors[0], marker="o", linewidth=2)
-    ax2.plot(x, comp2, label=component_labels[1], color=colors[1], marker="o", linewidth=2)
-    ax2.plot(x, comp3, label=component_labels[2], color=colors[2], marker="o", linewidth=2)
-   # ax2.set_title(title if normalize else "")
-    ax2.set_xlabel("Number of games played")
-    ax2.set_ylabel("Percent")
-    ax2.legend(loc="best")
-    ax2.grid(True, alpha=0.25)
+    # Formatting
+    ax.set_title("Training Evolution", fontsize=14)
+    ax.set_xlabel("Total Games Played", fontsize=12)
+    ax.set_ylabel("Distribution (%)", fontsize=12)
+    ax.set_ylim(0, 100)
+    ax.set_xlim(x_axis[0], x_axis[-1])
+    ax.legend(loc='upper right', frameon=True, facecolor='white')
+    ax.grid(True, alpha=0.3, linestyle='--')
 
     plt.tight_layout()
-    if show:
-        plt.show()
-
+    plt.show()
 
 # %%
 #Functions related to playing the game
