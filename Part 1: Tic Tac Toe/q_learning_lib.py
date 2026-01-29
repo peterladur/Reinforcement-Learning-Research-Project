@@ -591,3 +591,72 @@ def play_random_match(number_of_games=1000):
         counter[1 + result] += 1
 
     return counter
+
+
+
+
+
+
+
+
+
+
+
+#------------- Monte Carlo -------------------
+
+def learn_from_queue_MC(Q_Table, queue, alpha=0.1):
+    """
+    Updates the Q_Table using Monte Carlo Policy Evaluation.
+    Unlike Q-Learning, this does not bootstrap (look at future Q-values).
+    It moves the Q-value of every state-action pair in the game toward the final result.
+    """
+    for game, result in queue:
+        for state, action in game:
+            # MC Update Rule: Q(s,a) = Q(s,a) + alpha * (Final_Result - Q(s,a))
+            Q_Table[state][action] += alpha * (result - Q_Table[state][action])
+            
+    return Q_Table
+
+def perform_training_MC(player, opponent_type='random', number_of_batches=NUMBER_OF_BATCHES, 
+                        batch_size=BATCH_SIZE, display_training=True,
+                        alpha_func=calculate_alpha, tau_func=calculate_tau, result_frequency=50):
+    """
+    Trains a player using Monte Carlo learning.
+    """
+    if display_training:
+        print(f'Training {player} via Monte Carlo...')
+        print('o win   draw    x win')
+        
+    Q_Table = init_Q_Table()
+    counter_final_values = []
+    counter = [0, 0, 0]
+
+    if opponent_type == 'perfect':
+        perfect_Q_Table = import_perfect_Q_Table()
+
+    for batch_number in range(1, number_of_batches):
+        game_queue = []
+        tau = tau_func(batch_number * batch_size)
+
+        for game_number in range(batch_size):
+            if opponent_type == 'perfect':
+                queue, result = play_the_game_learning(Q_Table, tau, player, True, perfect_Q_Table)
+            else:
+                queue, result = play_the_game_learning(Q_Table, tau, player, False)
+
+            counter[result + 1] += 1
+            game_queue.append((queue, result))
+
+        alpha = alpha_func(batch_number * batch_size)
+        
+        # Call the Monte Carlo learning function
+        Q_Table = learn_from_queue_MC(Q_Table, game_queue, alpha)
+
+        if batch_number % result_frequency == 0:
+            counter_final_values.append(counter)
+            if display_training:
+                print(int(batch_number))
+                display_counter(counter)
+            counter = [0, 0, 0]
+
+    return Q_Table, np.array(counter_final_values)
