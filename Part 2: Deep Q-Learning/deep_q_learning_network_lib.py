@@ -131,21 +131,22 @@ def back_propagate(forward_propagation_params_A, forward_propagation_params_Z, w
     dZ = np.zeros_like(final_A)
     batch_indices = np.arange(m)
     predictions = final_A[actions, batch_indices]
-    dZ[actions, batch_indices] = predictions - targets
+    dZ[actions, batch_indices] = predictions - targets #dC/dA
 
     #backpropagate through the layers until we get to the input layer
     for i in range(len(weights) -1, -1, -1):
-        #a bunch of matrix calculus I am semi familiar with, but want to understand better
-        A_prev = forward_propagation_params_A[i] 
 
-        dW = 1/m * dZ @ A_prev.T
-        db = 1/m * np.sum(dZ, axis=1, keepdims=True)
+        A_prev = forward_propagation_params_A[i]  #previous activation layer
+
+        dW = 1/m * dZ @ A_prev.T #dZ/dW
+        db = 1/m * np.sum(dZ, axis=1, keepdims=True) #dZ/dB
 
         dW_list.insert(0, dW)
         db_list.insert(0, db)
 
 
         if i > 0:
+            #this is the dA/dZ = f'(Z) * dZ right
             dZ = (weights[i].T @ dZ) * functions_deriv[i - 1](forward_propagation_params_Z[i - 1])
 
 
