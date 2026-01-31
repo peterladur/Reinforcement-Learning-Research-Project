@@ -66,7 +66,7 @@ for i in range(5): # Watch 5 games
     while not done:
         # Use your trained weights to pick the best action
         s_vec = state.reshape(-1, 1)
-        A_list, _ = dqn.forward_propogate(main_W, main_b, s_vec, FUNCTIONS)
+        A_list, _ = dqn.forward_propagate(main_W, main_b, s_vec, FUNCTIONS)
         
         action = dqn.pick_action_softmax(A_list[-1].flatten(), 2)
         
@@ -90,7 +90,7 @@ for episode in range(EPISODES):
         else:
             # Reshape state to (4, 1) for your library
             s_vec = state.reshape(-1, 1)
-            A_list, _ = dqn.forward_propogate(main_W, main_b, s_vec, FUNCTIONS)
+            A_list, _ = dqn.forward_propagate(main_W, main_b, s_vec, FUNCTIONS)
             action = dqn.pick_action_softmax(A_list[-1].flatten(), -2)
 
         # Step in Environment
@@ -155,7 +155,7 @@ for i in range(3): # Record 3 games
     
     while not done:
         s_vec = state.reshape(-1, 1)
-        A_list, _ = dqn.forward_propogate(main_W, main_b, s_vec, FUNCTIONS)
+        A_list, _ = dqn.forward_propagate(main_W, main_b, s_vec, FUNCTIONS)
         action = dqn.pick_action_softmax(A_list[-1].flatten(), -2)
         
         state, reward, terminated, truncated, _ = test_env.step(action)

@@ -66,7 +66,7 @@ for episode in range(EPISODES):
             action = env.action_space.sample()
         else:
             s_vec = state.reshape(-1, 1) # Reshaped to (8, 1)
-            A_list, _ = dqn.forward_propogate(main_W, main_b, s_vec, FUNCTIONS)
+            A_list, _ = dqn.forward_propagate(main_W, main_b, s_vec, FUNCTIONS)
             action = np.argmax(A_list[-1])
 
         # Step in Environment
@@ -140,7 +140,7 @@ for i in range(5):
     while not done:
         # Get greedy action from the trained Main Model
         s_vec = state.reshape(-1, 1)
-        A_list, _ = dqn.forward_propogate(main_W, main_b, s_vec, FUNCTIONS)
+        A_list, _ = dqn.forward_propagate(main_W, main_b, s_vec, FUNCTIONS)
         
         # A_list[-1] contains the Q-values for the output layer
         action = np.argmax(A_list[-1])
