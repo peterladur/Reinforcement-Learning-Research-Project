@@ -86,7 +86,7 @@ for parent_state in parent_states:
         if child_state is terminal_state:
             Q_Table[child_state] = [game_result] * 9
         else:
-            \\min or max depends on whether it's x/o removed respectively 
+            #min or max depends on whether it's x/o removed respectively 
             Q_Table[child_state][index of x/o] = min/max(Q_Table[parent_state])  
 
             parent_states = child states
@@ -217,19 +217,19 @@ RL Q-Table & 0.30& 0.20 & 1.00 & 0 & 0 & 1.00 & 0 & \cellcolor{black!60} & \cell
 \noindent
 \textbf{Note:} Although the library was mostly self made, in order to quickly test if it works (instead of spending a lot of time writing a game myself only to discover I have made an error with my neural network structure), I have made AI implement my library using 2 games made by Open-AI for training agents, ``cart pole'' and ``lunar lander''\\
 
-The main disadvantage of traditional Q-Learning is that it only works well with a small number of discrete states. If the input is continuous, then it will no longer work, as the Q-Table would need to be infinitely large. This problem is solved by Deep Q-Learning (DQN), instead of a Q-Table, a Deep Q-Network (DQN) is implemented. While a Q-Table a state corresponds to all the Q-Values which can be taken by different actions, with a DQL uses a network to estimate the Q-Values for all actions instead.\\
+The main disadvantage of traditional Q-Learning is that it only works well with a small number of discrete states. If the input is continuous, then it will no longer work, as the Q-Table would need to be infinitely large. This problem is solved by implementing a Deep Q-Network (DQN), instead of a Q-Table. While a Q-Table a state corresponds to all the Q-Values which can be taken by different actions, DQN estimates the Q-Values for all actions instead.\\
 
 I have implemented a simple numpy-based library in python which allows for an implementation of a DQN.
 \section{Neural Network structure, backpropogation, loss fucntion}
 
-By structure DQN is identical to a normal neural network. It takes in the state such as coordinates or stock prices in the input layer and forward propogates the input (as seen in equation \ref{eq:forward propagation}) through the network to return the estimated Q-Values in the output layer. 
+By structure DQN is identical to a normal neural network. It takes in the state such as coordinates or stock prices in the input layer and forward propogates the input through the network to return the estimated Q-Values in the output layer as seen in equation \ref{eq:forward propagation}. 
 
 \begin{align}
     \mathbf{a}^{(l+1)} = \sigma \left( \mathbf{W}^{(l)} \mathbf{a}^{(l)} + \mathbf{b}^{(l)} \right)
     \label{eq:forward propagation}
 \end{align}
 
-The main difference between a Q-Table and a Q-Network is while during training a Q-Table, the Q-Values are simply updated using the Bellman equation, in a DQN weights and biases are adjusted. With a Q-Table that has converged $Q(s, a) = r + \gamma \max_{a'} Q(s', a')$ and very similarly, with a trained Deep Q-Network $Q(s, a, \theta) = r + \gamma \max_{a'} Q(s', a', \theta)$. During DQN training, an action picked is compared to the target as seen in equations \ref{eq:target} and \ref{eq:loss function}. The weights and biases $\theta$ are then adjusted through backpropogation with respect to the loss function $\mathcal{L}(\bm{\theta})$ as seen in code segment \ref{}.
+The main difference between a Q-Table and a Q-Network is while during training a Q-Table, the Q-Values are simply updated using the Bellman equation, in a DQN weights and biases are adjusted. With a converged Q-Table $Q(s, a) = r + \gamma \max_{a'} Q(s', a')$ and very similarly, with a trained Deep Q-Network $Q(s, a, \theta) = r + \gamma \max_{a'} Q(s', a', \theta)$. During DQN training, an action picked is compared to the target as seen in equations \ref{eq:target} and \ref{eq:loss function}. The weights and biases $\theta$ are then adjusted through backpropogation with respect to the loss function $\mathcal{C}(\bm{\theta})$ as seen in listing \ref{lst:backprop}.
 
 \begin{equation}
     \text{target} = r + \gamma \max_{a'} Q(s', a'; \bm{\theta}^-)
@@ -237,29 +237,46 @@ The main difference between a Q-Table and a Q-Network is while during training a
 \end{equation}
 
 \begin{equation}
-    \mathcal{L}(\bm{\theta}) = \mathbb{E}_{(s, a, r, s')} \left[\frac{1}{2} \left( \text{target} - Q(s, a; \bm{\theta}) \right)^2 \right]
+    \mathcal{C}(\bm{\theta}) = \mathbb{E}_{(s, a, r, s')} \left[\frac{1}{2} \left( \text{target} - Q(s, a; \bm{\theta}) \right)^2 \right]
         \label{eq:loss function}
 \end{equation}
 
+\begin{lstlisting}[caption={Backpropagation implementation for Q-Learning}, label={lst:backprop}, language=Python]
 
-\begin{align}
-    \text{Backpropogation matrix calculus goes here}
-\end{align}
+dZ[actions, batch_indices] = predictions - targets #dC/dA
 
-\section{cart-pole game}
+#backpropagate through the layers until we get to the input layer
+for i in range(len(weights) -1, -1, -1):
+
+    A_prev = forward_propagation_params_A[i]  #previous activation layer
+
+    dW = 1/m * dZ @ A_prev.T #dC/dW = dC/dA * dA/dW
+    db = 1/m * np.sum(dZ, axis=1, keepdims=True) #dC/db = dC/dA * dA/db
+
+    dW_list.insert(0, dW)
+    db_list.insert(0, db)
+
+
+    if i > 0:
+        #this is the dA/dZ = f'(Z) * dZ
+        dZ = (weights[i].T @ dZ) * 
+        functions_deriv[i - 1](forward_propagation_params_Z[i - 1])   
+\end{lstlisting}
+
+\section{Deep Q-Learning results}
+Having made a simple library for implementing a DQN, I have prompted ``Gemini-3-flash-preview'' to implement it in the context of a game. 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{"../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png"} % Path to your image
-    \caption{The library I made is able to train a neural network to control a cart balancing a pole. The neural network takes in 4 parameters and generates 2 outputs.}
+    \caption{The library I made is able to train a neural network to control a cart balancing a pole. The neural network takes in 4 parameters and generates 2 q-values.}
     \label{fig:CartPole-v1_example.png}
 \end{figure}
 
-\section{moon-landing game}
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{"../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png"} % Path to your image
-    \caption{The library I made is able to train a neural network to control a space ship landing on the moon. The neural network takes in 8 parameters and generates 4 outputs.}
+    \caption{The library I made is able to train a neural network to control a space ship landing on the moon. The neural network takes in 8 parameters and generates 4 q-values.}
     \label{fig:LunarLander-v3_example.png}
 \end{figure}
 
