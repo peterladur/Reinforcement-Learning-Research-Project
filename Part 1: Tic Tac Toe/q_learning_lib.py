@@ -291,51 +291,45 @@ def display_counter(counter):
 
 # %%
 
-def plot_training_results(data, batch_size, result_frequency, component_labels=("O win", "Draw", "X win"), normalize=True):
+def plot_training_results(data, total_batches, batch_size):
     """
-    Plots a stacked area chart showing the evolution of game outcomes.
-    
-    Parameters:
-    -----------
-    data : np.array or list
-        The counter_final_values array (shape: N, 3)
-    batch_size : int
-        Number of games per batch (e.g., 10)
-    result_frequency : int
-        How many batches pass between each data recording (e.g., 50)
+    Plots training results. The X-axis starts exactly at 0 and ends at total_batches * batch_size.
     """
+    # 1. Ensure data is a 2D array of floats
     arr = np.array(data, dtype=float)
+    if arr.ndim != 2:
+        raise ValueError("Data is not 2D. Did you pass the Q-Table instead of the results?")
+
+    # 2. Normalize to 100%
+    row_sums = arr.sum(axis=1)
+    scale = np.divide(100.0, row_sums, out=np.zeros(len(row_sums), dtype=float), where=(row_sums!=0))
+    arr = (arr.T * scale).T
+
+    # 3. Create X-axis scaling starting at 0
+    total_games = total_batches * batch_size
+    num_data_points = len(arr)
     
-    # 1. Normalize to 100% so the stack always fills the Y-axis
-    if normalize:
-        row_sums = arr.sum(axis=1)
-        # Avoid division by zero
-        scale = np.divide(100.0, row_sums, out=np.zeros_like(row_sums), where=row_sums!=0)
-        arr = (arr.T * scale).T
+    # Changed: starts at 0 instead of (total_games / num_data_points)
+    x_axis = np.linspace(0, total_games, num_data_points)
 
-    # 2. Fix the X-axis scale
-    # Each entry in 'data' represents (result_frequency * batch_size) games.
-    games_per_record = result_frequency * batch_size
-    num_records = len(arr)
-    x_axis = np.arange(1, num_records + 1) * games_per_record
-
-    # 3. Create the Plot
-    fig, ax = plt.subplots(figsize=(10, 6))
-    colors = ["#4C78A8", "#F58518", "#54A24B"] # Blue, Orange, Green
+    # 4. Plot
+    plt.figure(figsize=(10, 6))
+    colors = ["#4C78A8", "#F58518", "#54A24B"]
+    labels = ["O win", "Draw", "X win"]
     
-    # We transpose arr to get the three columns (O-win, Draw, X-win)
-    ax.stackplot(x_axis, arr[:, 0], arr[:, 1], arr[:, 2], 
-                 labels=component_labels, colors=colors, alpha=0.8)
+    plt.stackplot(x_axis, arr[:, 0], arr[:, 1], arr[:, 2], 
+                  labels=labels, colors=colors, alpha=0.85)
 
-    # Formatting
-    ax.set_title("Training Evolution", fontsize=14)
-    ax.set_xlabel("Total Games Played", fontsize=12)
-    ax.set_ylabel("Distribution (%)", fontsize=12)
-    ax.set_ylim(0, 100)
-    ax.set_xlim(x_axis[0], x_axis[-1])
-    ax.legend(loc='upper right', frameon=True, facecolor='white')
-    ax.grid(True, alpha=0.3, linestyle='--')
-
+    plt.title(f"Training Progress (Total Games: {total_games:,})", fontsize=14)
+    plt.xlabel("Total Games Played", fontsize=12)
+    plt.ylabel("Distribution (%)", fontsize=12)
+    
+    # Ensure the axis tightly hugs the data
+    plt.xlim(0, total_games)
+    plt.ylim(0, 100)
+    plt.legend(loc='upper right', frameon=True, facecolor='white')
+    plt.grid(axis='y', alpha=0.3, linestyle='--')
+    
     plt.tight_layout()
     plt.show()
 
@@ -496,7 +490,7 @@ def perform_training(player, opponent_type='perfect',number_of_batches=NUMBER_OF
         perfect_Q_Table = import_perfect_Q_Table()
     
 
-    for batch_number in range(1, number_of_batches): #playes this many batches
+    for batch_number in range(0, number_of_batches): #playes this many batches
         game_queue = [] #queue for the batch
 
         tau = tau_func(batch_number * batch_size) #decides on tau
@@ -639,6 +633,78 @@ def perform_training_MC(player, opponent_type='random', number_of_batches=NUMBER
 
         if batch_number % result_frequency == 0:
             counter_final_values.append(counter)
+            if display_training:
+                print(int(batch_number))
+                display_counter(counter)
+            counter = [0, 0, 0]
+
+    return Q_Table, np.array(counter_final_values)
+
+
+
+def init_Visits_Table(filename="data_exports/list_of_all_possible_states.csv"):
+    """Creates a table to track how many times each state-action pair has been visited."""
+    Q_Table_read = pd.read_csv(filename)
+    Visits_Table = dict()
+    for state in Q_Table_read['state']:
+        Visits_Table[state] = np.zeros(9)
+    return Visits_Table
+
+
+def learn_from_queue_MC_incremental(Q_Table, Visits_Table, queue):
+    """
+    Updates the Q_Table using the incremental mean formula from the provided code.
+    Q(s,a) = Q(s,a) + (1/N(s,a)) * (Reward - Q(s,a))
+    """
+    for game, result in queue:
+        for state, action in game:
+            # Increment the visit counter for this specific state-action pair
+            Visits_Table[state][action] += 1
+            n = Visits_Table[state][action]
+            
+            # The incremental mean update rule
+            Q_Table[state][action] += (result - Q_Table[state][action]) / n
+            
+    return Q_Table, Visits_Table
+
+
+def perform_training_MC_incremental(player, opponent_type='random', number_of_batches=NUMBER_OF_BATCHES, 
+                                   batch_size=BATCH_SIZE, display_training=True,
+                                   tau_func=calculate_tau, result_frequency=50):
+    """
+    Trains a player using the Monte Carlo Incremental Mean strategy.
+    """
+    if display_training:
+        print(f'Training {player} via Incremental Monte Carlo...')
+        print('o win   draw    x win')
+        
+    Q_Table = init_Q_Table()
+    Visits_Table = init_Visits_Table() # Track visits for 1/N update
+    
+    counter_final_values = []
+    counter = [0, 0, 0]
+
+    if opponent_type == 'perfect':
+        perfect_Q_Table = import_perfect_Q_Table()
+
+    for batch_number in range(1, number_of_batches):
+        game_queue = []
+        tau = tau_func(batch_number * batch_size)
+
+        for game_number in range(batch_size):
+            if opponent_type == 'perfect':
+                queue, result = play_the_game_learning(Q_Table, tau, player, True, perfect_Q_Table)
+            else:
+                queue, result = play_the_game_learning(Q_Table, tau, player, False)
+
+            counter[result + 1] += 1
+            game_queue.append((queue, result))
+        
+        # Use the incremental update rule from the other code
+        Q_Table, Visits_Table = learn_from_queue_MC_incremental(Q_Table, Visits_Table, game_queue)
+
+        if batch_number % result_frequency == 0:
+            counter_final_values.append(counter.copy())
             if display_training:
                 print(int(batch_number))
                 display_counter(counter)

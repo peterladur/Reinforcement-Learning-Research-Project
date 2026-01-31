@@ -1,0 +1,92 @@
+"""This code generates a q-table using Monte-Carlo policy evaluation. Naughts and crosses can each be optimal, random or learning. Tau and alpha can be adjusted. 
+Number of games played can be adjusted. """
+
+def monte_carlo(games, x_strategy, o_strategy, tau, q_table=None, visits_dict=None):
+    """Function which plays the given number of games using the given strategy (random or optimal) for both agent and opponent."""
+    # initialising resultant q-table (if not already inputted)
+    # decided to use a dictionary mapping state to a dictionary
+    # the inner dictionary maps a move to an outcome
+    if not q_table:
+        q_table = {}
+        for state, moves in moves_at_state.items():
+            q_table[state] = {move: 0 for move in moves}
+    # also initialising a dictionary storing amount of visits to each state
+    if not visits_dict:
+        visits_dict = {}
+        for state, moves in moves_at_state.items():
+            for move in moves:
+                visits_dict[(state, move)] = 0
+
+    gamecount = 0 # initialise game counter
+
+    while gamecount < games:
+        # initialise the game state 
+        gamestate = (0, 0)
+        # initialise list of states, moves and result
+        gamelist = []
+        depth = 0
+        while gamestate not in terminal_states: # continue playing until a terminal state is achieved
+            old = gamestate
+            if depth % 2 == 0: # crosses' turn
+                gamestate, move = mc_x_moves(q_table, gamestate, x_strategy, tau)
+            else: # naughts' turn
+                # s' is the new state after naughts have moved
+                gamestate, move = mc_o_moves(q_table, gamestate, o_strategy, tau) 
+            # append state and move to the game tracker 
+            gamelist.append((old, move))
+            # increment visits counter
+            visits_dict[(old, move)] += 1
+            # increment depth counter
+            depth += 1
+        # record terminal state
+        reward = terminal_states[gamestate]
+        # update game counter
+        gamecount += 1
+        # update q-table using incremental mean
+        for state, move in gamelist:
+            visits = visits_dict[(state, move)]
+            q_table[state][move] += (reward - q_table[state][move]) / visits
+        
+    # return list of states and result
+    return q_table
+
+def mc_x_moves(q_table, state, x_strategy, tau):
+    """Function which, given a state and a strategy for crosses, makes a move and returns the resulting state"""
+    naughts, crosses = state
+    a = mc_choose_action(q_table, state, x_strategy, 'x', tau)
+    new_state = (naughts, crosses | (1 << a))
+    # return the new state s'
+    return new_state, a
+
+def mc_o_moves(q_table, state, o_strategy, tau):
+    """Function which, given a state and a strategy for naughts, makes a move and returns the resulting state"""
+    naughts, crosses = state
+    a = mc_choose_action(q_table, state, o_strategy, 'o', tau)
+    new_state = (naughts | (1 << a), crosses)
+    # return the new state s'
+    return new_state, a
+
+def mc_choose_action(q_table, state, strategy, player, tau):
+    """Function which, given a state, strategy, and player, picks a move for the player to make"""
+    # random strategy chooses with equal probabilities so Pr(a) = 1/N_a 
+    if strategy == 'random':
+        return random.choice(moves_at_state[state])
+    elif strategy == 'learning':
+        # Boltzmann function
+        moves = moves_at_state[state]
+        q_values = [q_table[state][a] for a in moves]
+        return boltzmann(moves, q_values, tau, player)
+    # otherwise, the input is a q-table. depending on the player the player will either maximise or minimise q-value
+    elif player == 'x': # crosses' turn
+        q_values = q_table[state]
+        max_val = max(q_values.values())
+        # Find all moves that share this maximum value
+        best_moves = [m for m, v in q_values.items() if v == max_val]
+        return random.choice(best_moves)
+    else: # naughts' turn
+        q_values = q_table[state]
+        min_val = min(q_values.values())
+        # Find all moves that share this minimum value
+        best_moves = [m for m, v in q_values.items() if v == min_val]
+        return random.choice(best_moves)
+
