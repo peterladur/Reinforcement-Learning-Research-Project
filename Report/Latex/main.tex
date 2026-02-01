@@ -6,7 +6,7 @@
 \usepackage{makecell} % Required for multi-line cells\
 \usepackage{comment}
 \usepackage{listings}
-\usepackage[draft]{graphicx}
+\usepackage{graphicx}
 \usepackage{coffeestains}
 \usepackage{bm}
 
@@ -20,7 +20,11 @@
 \chapter{Introduction}
 \coffeestainC{0.9}{0.85}{-25}{5cm}{1.3cm} 
 The aim of this project is to explore Q-Learning in the context of tic-tac-toe and other applications using python. Theoretical Q-Table was generated using the ``minimax'' algorithm, and was compared to Q-Tables generated through training against both, random and perfect opponent. Results of agents trained on different policies playing against each other were recorded. How hyperparameters ($\alpha$, $\tau$) affect training results was investigated and an optimal function for hyperparameters was proposed. Deep-Q-Learning was investigated in the context of different games in the ``Open-AI gymnasium'' (\textit{I know that this is unlikely but if I finish the report and still have some time left over, I will try playing around with another application of Deep Q-Learning such as the stock market}). 
+tion. 
 
+\begin{align}
+Q(s_{t}, a) \leftarrow (1-\alpha) \cdot Q(s_{t}, a) + \alpha (r + \gamma \cdot \max_{a}{Q(s_{t + 1}, a)}) 
+\end{align}
 \chapter{Background}
 \section{Q-Table}
 Q-Table is a table which contains contains the total expected reward after every possible action in a particular state assuming the optimal policy is followed. In the context of tic-tac-toe the state is the game position at that particular moment, and actions are all the empty squares. As seen in \cref{tab:perfect_Q_Table_entry}, for that particualr state there are two actions that lead to a total expected reward of 1 (wins) and three actions which lead to a total expected reward of 0 (draws) assuming perfect play. The Q-Table can then be used to select moves which maximise the total reward. 
@@ -60,7 +64,7 @@ Where:
 
 The learning rate $\alpha$ determines how much does the new information replace the already known information. A learning rate of $1$ would mean that each training iteration the $Q(s, a)$ is completely replaced by $(r + \gamma \cdot \max_{a}{Q(s_{t + 1}, a)})$. A learning rate of $0$ would imply that $Q(s, a)$ is not affected by training at all. The learning rate can be adjusted during training as the model becomes more stable.\\
 
-The immidiate reward in the context of tic-tac-toe is $1$ for a game that is won by \text{X}, $0$ for a game that is drawn and $-1$ for a game that is won by \text{O}.
+The immidiate reward in the context of tic-tac-toe is $1$ for a game that is won by \text{X}, $0$ for a game that is drawn and $-1$ for a game that is won by \text{O}. \\
 
 The discount factor is a measure of how much the future is important compared to the current decision. For example in the context of tic-tac-toe the future matters just as much as the the current situation, no matter if you loose on move 5 or move 7, you still loose. Meanwhile in a long game with no set win condition, such as a player trying to dodge obstacles, often the most important thing is not to die right now, the future is less important.
 

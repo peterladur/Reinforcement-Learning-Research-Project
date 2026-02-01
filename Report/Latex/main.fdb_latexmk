@@ -1,11 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1769983611.46188 "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" "main.pdf" "main" 1769983613.06035 0
+["pdflatex"] 1769984860.64341 "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" "main.pdf" "main" 1769984862.55508 0
   "../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_2.png" 1769689870.82188 25263 40ce8cc087ef1bc374a89d813972c830 ""
   "../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png" 1769505783.90323 41015 8724aeb5210531fafac8f13878200753 ""
   "../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png" 1769931920.15351 42957 b3190ba356a01605661a8dd72c60a91c ""
   "../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png" 1769332796.09453 6337 7b54d9f05270e5d9e7eb0289744907c4 ""
   "../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png" 1769333001.1083 61990 d353c78bc642bdad822a212b753850f2 ""
-  "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" 1769983611.13936 19172 2698563a335afdbe0909543f77bdecaa ""
+  "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" 1769984860.63335 19308 6789010d9e2efe69f977ed0755e5eadb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -46,7 +46,6 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1136768653 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
@@ -63,7 +62,6 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1215737283 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb" 1215737283 186554 e8f0fa8ca05e038f257a06405232745f ""
@@ -176,8 +174,8 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1763631524 5541377 0af08d58b046ada1f2a2c7d4825ab417 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1763631673 3635529 f350ced5431f0f4ec1b4e8f85b42e9ea ""
   "/usr/local/texlive/2025/texmf.cnf" 1763631518.12083 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "main.aux" 1769983612.91481 6943 93e3aab79d28338584ddf48fee44f1da "pdflatex"
-  "main.tex" 1769983611.13936 19172 2698563a335afdbe0909543f77bdecaa ""
+  "main.aux" 1769984862.41262 6943 93e3aab79d28338584ddf48fee44f1da "pdflatex"
+  "main.tex" 1769984860.63335 19308 6789010d9e2efe69f977ed0755e5eadb ""
   (generated)
   "main.aux"
   "main.log"
