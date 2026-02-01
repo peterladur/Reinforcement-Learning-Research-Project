@@ -185,7 +185,7 @@ The theoretical Q-Table generated using the minimax algorihtm has differences to
 
 When generating the Q-Table of \textbf{X} playing against a perfect opponent, \textbf{O} will never end up in a loosing position. Hence states where \textbf{O} has a chance to loose are never explored and much of the RL generated Q-Table is unfilled. For the states which are explored the values of the RL generated Q-Table are similar to theoretical values as seen in Table \ref{tab:Q-Table comparison for ____o_oxx} \\\\
 
-When generating the Q-Table of \textbf{X} playing against a random opponent, more states are explored, and two out of three actions which lead to a garanteed win (assuming perfect play), were given the q-value of 1 as seen in Table \ref{tab:Q-Table comparison for _______ox}. Likely, the reason why action (2, 2) was given the value of 0.00 is because it wasn't explored enough during the exploration phase.
+When generating the Q-Table of \textbf{X} playing against a random opponent, more states are explored, and two out of three actions which lead to a garanteed win (assuming perfect play), were given the q-value of 1 as seen in Table \ref{tab:Q-Table comparison for _______ox}. Although Likely, the reason why action (2, 2) was given the value of 0.00 is because it wasn't explored enough during the exploration phase.
 
 
 %Q-Table example
@@ -200,7 +200,7 @@ When generating the Q-Table of \textbf{X} playing against a random opponent, mor
 RL Q-Table & \cellcolor{black!60}& \cellcolor{black!60} & \cellcolor{black!60} & -0.75 & \cellcolor{black!60} & -0.75 & -0.75 & -0.66 & 0\\ \hline
 \end{tabular}
 % 3. ADD THE CAPTION AND LABEL HERE
-\caption{The theoretical and RL Q-Table for x playing against perfect opponent, give similar values for the state }
+\caption{The theoretical and RL Q-Table for x playing against perfect opponent, give similar Q-Values for explored states}
 \label{tab:Q-Table comparison for ____o_oxx} 
 \end{table}
 
@@ -218,16 +218,17 @@ RL Q-Table & \cellcolor{black!60}& \cellcolor{black!60} & \cellcolor{black!60} &
 % Draws top line starting from 2nd column
 \cline{1-10}
 \multicolumn{1}{|c|}{\makecell{\_ \_ \_ \\ \_ \_ \_ \\ \_ o x}} & (1, 1) & (1, 2) & (1, 3) & (2, 1) & (2, 2) & (2, 3) & (3, 1) & (3, 2) & (3, 3) \\ \hline
-\makecell{Theoretical Q-Table \\(perfect opponent)}& 0 & \cellcolor{black!60} & \cellcolor{black!60} & 0 & 1 & 1  & 0 & 0 & 0\\ \hline
-\makecell{Theoretical Q-Table \\(random opponent)}& 0.24 & \cellcolor{black!60} & \cellcolor{black!60} & 0.32 & 0.72 & 0.42  & 0.47 & 0.47 & 0.57\\ \hline
-RL Q-Table & 0.00 & \cellcolor{black!60} & \cellcolor{black!60} & 0.00 & 0.00 & 1.00 & 0.30 & 0.20 & 1.00 \\ \hline
+\makecell{Theoretical Q-Table \\(perfect opponent)}& 0 & \cellcolor{black!60} & \cellcolor{black!60} & 0 & 1 & 1  & 0 & 0 & 1\\ \hline
+RL Q-Table & 0.062 & \cellcolor{black!60} & \cellcolor{black!60} & 0.00 & 1.00 & 0.00 & 0.06 & 0.02 & 0.83 \\ \hline
 \end{tabular}
 % 3. ADD THE CAPTION AND LABEL HERE
-\caption{The theoretical and RL Q-Table achieve }
+\caption{The theoretical Q-Table for x playing againsta  random opponent, and RL Q-Table for x playing against a random opponent give different values, because the future policy is different}
 \label{tab:Q-Table comparison for _______ox} 
 \end{table}
 
-
+[ 0.  0.  1.  0.  1.  1.  0. nan nan]
+[0.06251062 0.01562584 0.83249612 0.         0.99995493 0.
+ 0.06248338 0.         0.        ]
 
 \chapter{Deep Q-Learning}
 \textbf{Note:} AI was slightly used for the creating of the library, specifically it helped to create the function handling the backpropogation and the function handling the loss function\\
