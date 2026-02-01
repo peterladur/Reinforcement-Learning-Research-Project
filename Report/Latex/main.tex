@@ -23,7 +23,7 @@ The aim of this project is to explore Q-Learning in the context of tic-tac-toe a
 
 \chapter{Background}
 \section{Q-Table}
-Q-Table is a table which contains contains expected outcomes after every possible action in a particular state. In the context of tic-tac-toe the state is the game position at that particular moment, and actions are all the empty squares. As seen in \cref{tab:perfect_Q_Table_entry}, for that particualr state there are two actions that lead to a win and three actions which lead to a draw (assuming perfect play). 
+Q-Table is a table which contains contains the total expected reward after every possible action in a particular state assuming the optimal policy is followed. In the context of tic-tac-toe the state is the game position at that particular moment, and actions are all the empty squares. As seen in \cref{tab:perfect_Q_Table_entry}, for that particualr state there are two actions that lead to a total expected reward of 1 (wins) and three actions which lead to a total expected reward of 0 (draws) assuming perfect play. The Q-Table can then be used to select moves which maximise the total reward. 
 
 %Q-Table example
 \begin{table}[h]
@@ -146,6 +146,12 @@ In order to pick out the best parameters $a$ and $t$ for $\alpha$ and $\tau$ res
 
 \section{Optimal and non optimal opponent}
 
+After training different agents, I have made them play against each other collecting results in Table \ref{tab:matrix of agents playing against each other}. 
+
+\begin{itemize}
+    \item An agent trained against the random policy does very well against an agent trained on an optimal policy. The reason for this, is that an agent trained on the perfect policy can only choose the moves at random if it's opponent makes a mistake. For example \textbf{X} trained on perfect would never have been exposed to a state where it can win. If it does win, it's purely by chance.
+    \item \textbf{X} and \textbf{O} trained on a perfect opponent perform very close to a random performance in a match against each other. The likely reason for this, is that both of the opponents have been trained to  
+\end{itemize}
 
 \begin{table}[h]
     \centering
@@ -162,7 +168,7 @@ In order to pick out the best parameters $a$ and $t$ for $\alpha$ and $\tau$ res
         \text{\textbf{O} trained on random} & \makecell{\textbf{X} winrate: 15.73\% \\ drawrate: 23.24\%\\ \textbf{O} winrate: 61.08\%} & \makecell{\textbf{X} winrate: 43.31\% \\ drawrate: 30.02\%\\ \textbf{O} winrate: 26.67\%} \\ \hline
     \end{tabular}
     \caption{Matrix of results of agents trained on different opponents playing against each other.}
-    \label{tab:3x3_example}
+    \label{tab:matrix of agents playing against each other}
 \end{table}
 
 
