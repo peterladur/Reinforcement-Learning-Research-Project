@@ -397,7 +397,6 @@ def play_the_game_two_Q_Tables(Q_Table_X, Q_Table_O, strategy='perfect', tau=np.
     result = 2
 
     while result == 2: #While the game is still going
-
         if (move_number % 2) == 0: #x
             if strategy == 'perfect':
                 action = pick_perfect_move(Q_Table_X, state, 'x', True) #plays a perfect move

@@ -53,8 +53,8 @@ Q(s_{t}, a) \leftarrow (1-\alpha) \cdot Q(s_{t}, a) + \alpha (r + \gamma \cdot \
 Where:
 \begin{itemize}
     \item $Q(s, a)$ is the predicted outcome for the action at a particular state $s$
-    \item $\alpha$ is the learning rate
-    \item $\gamma$ is the discount factor
+    \item $0 \leq \alpha \leq 1$  is the learning rate
+    \item $0 \leq \gamma \leq 1$ is the discount factor
     \item $r$ is the immidiate reward for achiveing a state
 \end{itemize}
 
@@ -62,10 +62,8 @@ The learning rate $\alpha$ determines how much does the new information replace 
 
 The immidiate reward in the context of tic-tac-toe is $1$ for a game that is won by \text{X}, $0$ for a game that is drawn and $-1$ for a game that is won by \text{O}.
 
-\begin{comment}
-\section{Tic-Tac-Toe}
-Tic-Tac-Toe is a simple two-player game on a 3 by 3 grid. The game originated in ancient Egypt atleast 1300 BC. Players take turns placing X's and O's in the grid with the goal of getting 3 in a row. The game is drawn with perfect play from both sides, but O's have to be precise to garantee a draw. Using the ``minimax'' algorithm -assuming the oppponent will play the optimal move- a theoretical Q-Table can be derived.
-\end{comment}
+The discount factor is a measure of how much the future is important compared to the current decision. For example in the context of tic-tac-toe the future matters just as much as the the current situation, no matter if you loose on move 5 or move 7, you still loose. Meanwhile in a long game with no set win condition, such as a player trying to dodge obstacles, often the most important thing is not to die right now, the future is less important.
+
 
 
 
@@ -113,13 +111,20 @@ During the Q-Learning algorihtm batches of games were played. The agent would ch
 \label{non terminal state update}
 \end{align}
 
-As agents learn their drawrate or winrate depending on if they are playing against a perfect or random opponent increases in the form of the decaying exponential. As \textbf{X} learns against optimal \textbf{O} the draws increase in the form of a decaying exponential draws \% = $e^{-k \cdot \text{games played}}$ as seen in Figure \ref{fig:x_vs_perfect_distribution_1}.  
+As agents learn their drawrate or winrate depending on if they are playing against a perfect or random opponent increases in the form of the decaying exponential. As \textbf{X} learns against optimal \textbf{O} the draws increase in the form of a decaying exponential draws \% = $e^{-k \cdot \text{games played}}$ as seen in Figures \ref{fig:x_vs_perfect_distribution_2}. As \textbf{X} learns against a random \textbf{O} the proportion of \textbf{X} wins increases exponentially as seen in Figure \ref{fig:x_vs_random_distribution_1}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{"../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png"} % Path to your image
+    \includegraphics[width=0.8\textwidth]{"../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_2.png"} % Path to your image
     \caption{\textbf{X} training against perfect \textbf{O} causes the drawrate in the form of a decaying exponential}
-    \label{fig:x_vs_perfect_distribution_1}
+    \label{fig:x_vs_perfect_distribution_2}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{"../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png"} % Path to your image
+    \caption{\textbf{X} training against perfect \textbf{O} causes the drawrate in the form of a decaying exponential}
+    \label{fig:x_vs_random_distribution_1}
 \end{figure}
 
 \section{Variations in $\alpha$ and $\tau$}
@@ -146,11 +151,12 @@ In order to pick out the best parameters $a$ and $t$ for $\alpha$ and $\tau$ res
 
 \section{Optimal and non optimal opponent}
 
-After training different agents, I have made them play against each other collecting results in Table \ref{tab:matrix of agents playing against each other}. 
+After training different agents, I have made them play 10000 against each other collecting results in Table \ref{tab:matrix of agents playing against each other}. 
 
 \begin{itemize}
-    \item An agent trained against the random policy does very well against an agent trained on an optimal policy. The reason for this, is that an agent trained on the perfect policy can only choose the moves at random if it's opponent makes a mistake. For example \textbf{X} trained on perfect would never have been exposed to a state where it can win. If it does win, it's purely by chance.
-    \item \textbf{X} and \textbf{O} trained on a perfect opponent perform very close to a random performance in a match against each other. The likely reason for this, is that both of the opponents have been trained to  
+    \item An agent trained against the random policy does very well against an agent trained on an optimal policy. The reason for this, is that an agent trained on the perfect policy can only choose the moves at random if it's opponent makes a mistake. For example \textbf{X} trained on perfect would never have been exposed to a state where it can win, so it will not know where to go and will make a random move.
+    \item \textbf{X} and \textbf{O} trained on a perfect opponent perform very close to a random performance in a match against each other. The likely reason for this, is that both of the opponents have been trained to draw and have not encountered the states where a non-optimal move is played.
+    \item The likely reason for high \textbf{X} and \textbf{O} wins for agaents trained on a random policy, is that they expect their opponent to continue playing the game randomly. Sometimes they might go for ``risky'' plays which would have a high probability of a win/draw against a random opponent, but encounter resistance against an actually trained opponent.
 \end{itemize}
 
 \begin{table}[h]
@@ -179,7 +185,7 @@ The theoretical Q-Table generated using the minimax algorihtm has differences to
 
 When generating the Q-Table of \textbf{X} playing against a perfect opponent, \textbf{O} will never end up in a loosing position. Hence states where \textbf{O} has a chance to loose are never explored and much of the RL generated Q-Table is unfilled. For the states which are explored the values of the RL generated Q-Table are similar to theoretical values as seen in Table \ref{tab:Q-Table comparison for ____o_oxx} \\\\
 
-When generating the Q-Table of \textbf{X} playing against a random opponent, more states are explored, and two out of three actions which lead to a garanteed win (assuming perfect play), were given the q-value of 1 as seen in Table \ref{tab:Q-Table comparison for _______ox}. The reason why the action (2, 2) is given a q-value of 0, is likely due to exploration vs exploitation.
+When generating the Q-Table of \textbf{X} playing against a random opponent, more states are explored, and two out of three actions which lead to a garanteed win (assuming perfect play), were given the q-value of 1 as seen in Table \ref{tab:Q-Table comparison for _______ox}. Likely, the reason why action (2, 2) was given the value of 0.00 is because it wasn't explored enough during the exploration phase.
 
 
 %Q-Table example
@@ -188,33 +194,39 @@ When generating the Q-Table of \textbf{X} playing against a random opponent, mor
 \renewcommand{\arraystretch}{2.5}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
 % Draws top line starting from 2nd column
-\cline{2-10}
-\multicolumn{1}{c|}{} & (1, 1) & (1, 2) & (1, 3) & (2, 1) & (2, 2) & (2, 3) & (3, 1) & (3, 2) & (3, 3) \\ \hline
-\makecell{Theoretical Q-Table \\(perfect opponent)}& \cellcolor{black!60}& -1 & -1 & 0 & -1& \cellcolor{black!60} & -1 & \cellcolor{black!60} & \cellcolor{black!60}\\ \hline
-RL Q-Table & \cellcolor{black!60}& 
--0.87 & -0.78 & 0 & -0.94 & \cellcolor{black!60} & -0.75 & \cellcolor{black!60} & \cellcolor{black!60}\\ \hline
+\cline{1-10}
+\multicolumn{1}{|c|}{\makecell{\_ \_ \_ \\ \_ o \_ \\ o x x}} & (1, 1) & (1, 2) & (1, 3) & (2, 1) & (2, 2) & (2, 3) & (3, 1) & (3, 2) & (3, 3) \\ \hline
+\makecell{Theoretical Q-Table \\(perfect opponent)}& \cellcolor{black!60}& \cellcolor{black!60}  & \cellcolor{black!60}  & -1 & \cellcolor{black!60} & -1 & -1 & -1 & 0\\ \hline
+RL Q-Table & \cellcolor{black!60}& \cellcolor{black!60} & \cellcolor{black!60} & -0.75 & \cellcolor{black!60} & -0.75 & -0.75 & -0.66 & 0\\ \hline
 \end{tabular}
 % 3. ADD THE CAPTION AND LABEL HERE
 \caption{The theoretical and RL Q-Table for x playing against perfect opponent, give similar values for the state }
 \label{tab:Q-Table comparison for ____o_oxx} 
 \end{table}
 
+\begin{comment}
+   array([-0.749944  , -0.65619606,  0.        , -0.74997125,  0.        ,
+       -0.7499505 ,  0.        ,  0.        ,  0.        ])
+       
+    array([-1., -1.,  0., -1., nan, -1., nan, nan, nan])
+\end{comment}
 %Q-Table example
 \begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{2.5}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
 % Draws top line starting from 2nd column
-\cline{2-10}
-\multicolumn{1}{c|}{} & (1, 1) & (1, 2) & (1, 3) & (2, 1) & (2, 2) & (2, 3) & (3, 1) & (3, 2) & (3, 3) \\ \hline
-\makecell{Theoretical Q-Table \\(perfect opponent)}& 0 & 0 & 1 & 0 & 1 & 1  & 0 & \cellcolor{black!60} & \cellcolor{black!60}\\ \hline
-\makecell{Theoretical Q-Table \\(random opponent)}& 0.47 & 0.47 & 0.57 & 0.32 & 0.72 & 0.42  & 0.24 & \cellcolor{black!60} & \cellcolor{black!60}\\ \hline
-RL Q-Table & 0.30& 0.20 & 1.00 & 0 & 0 & 1.00 & 0 & \cellcolor{black!60} & \cellcolor{black!60}\\ \hline
+\cline{1-10}
+\multicolumn{1}{|c|}{\makecell{\_ \_ \_ \\ \_ \_ \_ \\ \_ o x}} & (1, 1) & (1, 2) & (1, 3) & (2, 1) & (2, 2) & (2, 3) & (3, 1) & (3, 2) & (3, 3) \\ \hline
+\makecell{Theoretical Q-Table \\(perfect opponent)}& 0 & \cellcolor{black!60} & \cellcolor{black!60} & 0 & 1 & 1  & 0 & 0 & 0\\ \hline
+\makecell{Theoretical Q-Table \\(random opponent)}& 0.24 & \cellcolor{black!60} & \cellcolor{black!60} & 0.32 & 0.72 & 0.42  & 0.47 & 0.47 & 0.57\\ \hline
+RL Q-Table & 0.00 & \cellcolor{black!60} & \cellcolor{black!60} & 0.00 & 0.00 & 1.00 & 0.30 & 0.20 & 1.00 \\ \hline
 \end{tabular}
 % 3. ADD THE CAPTION AND LABEL HERE
 \caption{The theoretical and RL Q-Table achieve }
 \label{tab:Q-Table comparison for _______ox} 
 \end{table}
+
 
 
 \chapter{Deep Q-Learning}

@@ -1,8 +1,6 @@
 # Python virtual environment
 .venv/
-venv/
-env/
-ENV/
+
 
 # Python cache
 __pycache__/

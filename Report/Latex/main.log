@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  1 FEB 2026 17:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  1 FEB 2026 20:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -608,149 +608,166 @@ Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
-Excluding 'comment' comment. [3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dv
-ips/cm-super/cm-super-ts1.enc}]
+[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}]
 Chapter 3.
 
-Overfull \hbox (87.0044pt too wide) in paragraph at lines 89--90
+Overfull \hbox (87.0044pt too wide) in paragraph at lines 87--88
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (129.00482pt too wide) in paragraph at lines 90--92
+Overfull \hbox (129.00482pt too wide) in paragraph at lines 88--90
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
 [4
 
 ]
-<../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png, id=31, 558.
+<../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_2.png, id=31, 558.
 6471pt x 327.3831pt>
- [5]
+<../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png, id=33, 715.4
+73pt x 426.393pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5]
 <../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png, id=41, 6
 26.5809pt x 626.5809pt>
- [6]
-Overfull \hbox (7.43942pt too wide) in paragraph at lines 176--176
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (7.43942pt too wide) in paragraph at lines 182--182
 []\OT1/cmr/bx/n/14.4 Theoretical Q-Table com-pared to RL Q-Table 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
-
- []
-
-
-Overfull \hbox (82.48392pt too wide) in paragraph at lines 189--198
- [][] 
  []
 
 [7]
-Overfull \hbox (82.48392pt too wide) in paragraph at lines 206--215
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+
+ []
+
+
+Overfull \hbox (82.48392pt too wide) in paragraph at lines 195--203
  [][] 
  []
 
-[8]
+Excluding 'comment' comment.
+Overfull \hbox (82.48392pt too wide) in paragraph at lines 217--226
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8] [9]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 223--225
+Underfull \hbox (badness 10000) in paragraph at lines 235--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--227
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
 
  []
 
 
-Overfull \hbox (2.66626pt too wide) in paragraph at lines 229--229
+Overfull \hbox (2.66626pt too wide) in paragraph at lines 241--241
 []\OT1/cmr/bx/n/14.4 Neural Net-work struc-ture, back-pro-poga-tion,
  []
 
-[9
+[10
 
 ] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11a listings language file
 )
-Overfull \hbox (45.00397pt too wide) in paragraph at lines 254--255
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 266--267
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (87.0044pt too wide) in paragraph at lines 257--259
+Overfull \hbox (87.0044pt too wide) in paragraph at lines 269--271
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (81.00433pt too wide) in paragraph at lines 260--262
+Overfull \hbox (81.00433pt too wide) in paragraph at lines 272--274
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][] 
  []
 
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 2
-66.
+78.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 266.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 278.
 
-Overfull \hbox (57.00409pt too wide) in paragraph at lines 269--270
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 281--282
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (5.37457pt too wide) in paragraph at lines 273--274
+Overfull \hbox (5.37457pt too wide) in paragraph at lines 285--286
 \OT1/cmr/m/n/10 Having made a sim-ple li-brary for im-ple-ment-ing a DQN, I hav
 e prompted ``Gemini-
  []
 
-<../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png, id=57, 1192.455
+<../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png, id=61, 1192.455
 pt x 787.94376pt>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png, id=58, 675.5
+<../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png, id=62, 675.5
 2374pt x 447.6725pt>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10] [11]
+[11] [12]
 Chapter 5.
-[12
+[13
 
 ]
 Chapter 6.
-[13
+[14
 
 ] (./main.aux)
  ***********
@@ -759,10 +776,10 @@ L3 programming layer <2025-11-06>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 17690 strings out of 467538
- 346552 string characters out of 5419551
+ 17699 strings out of 467538
+ 347127 string characters out of 5419551
  1562662 words of memory out of 5000000
- 46298 multiletter control sequences out of 15000+600000
+ 46307 multiletter control sequences out of 15000+600000
  644801 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,18n,108p,18355b,1462s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -786,10 +803,10 @@ e/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/
 2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/20
 25/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on main.pdf (14 pages, 238676 bytes).
+Output written on main.pdf (15 pages, 240873 bytes).
 PDF statistics:
- 159 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
+ 163 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
