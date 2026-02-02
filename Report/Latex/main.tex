@@ -8,6 +8,7 @@
 \usepackage{comment}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{float}
 
 \usepackage{bm}
 
@@ -27,6 +28,13 @@
     xleftmargin=15pt,                  % Indent the whole block slightly
 }
 
+% This defines a "Pseudocode" style for listings
+\lstdefinelanguage{Pseudocode}{
+    morekeywords={for, in, if, else, for each, while, return, end},
+    sensitive=false,
+    morecomment=[l]{//},
+    morestring=[b]",
+}
 
 \title{\textbf{Q-Learning}}
 \author{Peter (Petr) Ladur\\\\56445760\\\\Supervised by: xxx yyy}
@@ -48,7 +56,7 @@ The aim of this project is to explore Q-Learning in the context of tic-tac-toe a
 Q-Table is a table which contains the total expected reward after every possible action in a particular state assuming the optimal policy is followed. In the context of tic-tac-toe the state is the game position at that particular moment, and actions are all the empty squares. As seen in \cref{tab:perfect_Q_Table_entry}, for that particular state there are four already occupied positions, two actions that lead to a total expected reward of $1$ (wins) and three actions which lead to a total expected reward of $0$ (draws) assuming perfect play. The Q-Table can then be used to select moves which maximise the total reward, creating a perfect tic-tac-toe bot. 
 
 %Q-Table example
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
@@ -93,20 +101,20 @@ The discount factor is a measure of how much the future is important compared to
 \section{Generating theoretical Q-Table}
 The ``minimax'' algorithm can be used in turn-based games to calculate the best policy. It is designed to minimise the potential loss and maximise the potential gain. The algorithm works by first generating all the possible final states and then taking turns ``undoing'' the moves that could have lead to that state by removing \textbf{X}'s and \textbf{O}'s until the initial state (empty board) is reached. Each time an \textbf{X} or \textbf{O} is removed the worst case scenario is considered, filling up the theoretical Q-Table as seen in code box \ref{lst:minimax}. This explores the game trees and backproagates the values, filling up a theoretical Q-Table.
 
-\begin{lstlisting}[caption={Minimax algorithm for generating the theoretical Q-Table}, label={lst:minimax}, language=Pascal]
+\begin{lstlisting}[caption={Minimax algorithm for generating the theoretical Q-Table}, label={lst:minimax}, language=Pseudocode]
 terminal_states = generate_all_terminal_states()
 
 for parent_state in parent_states:
     
     for x/o in parent_state:
 
-        #"undoing" a move from a state
+        //"undoing" a move from a state
         child_state = parent_state with an x/o removed
 
         if child_state is terminal_state:
             Q_Table[child_state] = [game_result] * 9
         else:
-            #min/max depends on whether x/o removed
+            //min/max depends on whether x/o removed
             Q_Table[child_state][index of x/o] = min/max(Q_Table[parent_state])  
 
             parent_states = child states
@@ -139,14 +147,14 @@ Where $\epsilon_{i} = Q(s, a_{i})$\\
 
 As agents learn their draw rate or win rate depending on if they are playing against a perfect or random opponent increases in the form of the decaying exponential. As \textbf{X} learns against optimal \textbf{O} the draws increase in the form of a decaying exponential draws \% = $e^{-k \cdot \text{games played}}$ as seen in \cref{fig:x_vs_perfect_distribution_1}. While \textbf{X} learns against a random \textbf{O} the proportion of \textbf{X} wins increases exponentially as seen in \cref{fig:x_vs_random_distribution_1}.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{"../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png"} % Path to your image
     \caption{\textbf{X} training against perfect \textbf{O} causes the draw rate to increase in the form of a decaying exponential}
     \label{fig:x_vs_perfect_distribution_1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{"../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png"} % Path to your image
     \caption{\textbf{X} training against random \textbf{O} causes the \textbf{X} win rate to increase in the form of a decaying exponential}
@@ -163,7 +171,7 @@ The values of hyperparameters $\tau$ and $\alpha$  matter significantly. During 
 
 In order to pick out the best parameters $a$ and $t$ for $\alpha$ and $\tau$ respectively, a range of $a$ and $t$ was picked, and an agent was trained for each combination as seen in \cref{x_vs_perfect_range_of_params_1.png}.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{"../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png"} % Path to your image
     \caption{After training \textbf{X} on $1000$ batches of $10$ games, the highest performing values for parameters \textit{growth rate} are $10^{\frac{-1}{3}}$ and \textit{decay rate} between $10^{-4}$ and $10^{-10}$}
@@ -185,7 +193,7 @@ After training different agents, I have made them play 10000 against each other 
     \item The likely reason for high \textbf{X} and \textbf{O} wins for agents trained on a random policy, is that they expect their opponent to continue playing the game randomly. Sometimes they might go for ``risky'' plays which would have a high probability of a win/draw against a random opponent, but encounter resistance against an actually trained opponent.
 \end{itemize}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \renewcommand{\arraystretch}{3} % Extra height for your RL board states
     \begin{tabular}{|l|c|c|}
@@ -215,7 +223,7 @@ When generating the Q-Table of \textbf{X} playing against a random opponent, mor
 
 
 %Q-Table example
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{2.5}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
@@ -231,7 +239,7 @@ RL-estimated Q-Table & \cellcolor{black!60}& \cellcolor{black!60} & \cellcolor{b
 \end{table}
 
 %Q-Table example
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{2.5}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
@@ -299,14 +307,14 @@ for i in range(len(weights) -1, -1, -1):
 Having made a simple library for implementing a DQN, I have prompted ``Gemini-3-flash-preview'' to implement it in the context of a game. 
 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{"../../Part 2: Deep Q-Learning/figures/CartPole-v1_example.png"} % Path to your image
     \caption{The library I made is able to train a neural network to control a cart balancing a pole. The neural network takes in 4 parameters and generates 2 q-values.}
     \label{fig:CartPole-v1_example.png}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{"../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png"} % Path to your image
     \caption{The library I made is able to train a neural network to control a spaceship landing on the moon. The neural network takes in 8 parameters and generates 4 q-values.}
@@ -320,9 +328,9 @@ In this project I have succeeded in implementing traditional Q-Learning in the c
 During this project there were several areas which I would like to explore further.\\
 
 \begin{itemize}
-    \item Experiment with other hyperparameter functions such as piecewise functions. Particularly, to not explore anything initially, and exploitation.
-    \item Experiment with $\gamma$. Although it doesn't matter if you win on move $5$ or move $7$, winning faster is preferred, as it is still possible for an agent to make a mistake in the future
-    \item Implementing a DQN in the context of a stock market. I would like to input historical data into a DQN and train it to sell, buy or hold, trying to make profit.
+    \item Experiment with other hyperparameter functions such as piecewise functions. Particularly, to only explore initially, and only then start exploring.
+    \item Experiment with the discount factor $\gamma$. Although it doesn't matter if you win on move $5$ or move $7$, winning faster is preferred, as it is still possible for an agent to make a mistake in the future
+    \item Implementing a DQN in the context of a stock market. I would like to input historical data into a DQN and train it to sell, buy or hold, trying to make profit
 \end{itemize}
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  2 FEB 2026 18:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.20)  2 FEB 2026 18:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -371,6 +371,14 @@ Package graphics Info: Driver file: pdftex.def on input line 106.
 \Gin@req@height=\dimen169
 \Gin@req@width=\dimen170
 )
+(/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count318
+\float@exts=\toks35
+\float@box=\box59
+\@float@everytoks=\toks36
+\@floatcapt=\box60
+)
 (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup6
@@ -383,43 +391,43 @@ LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count318
+\l__color_backend_stack_int=\count319
 )
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count319
+\scratchcounter=\count320
 \scratchdimen=\dimen171
-\scratchbox=\box59
-\nofMPsegments=\count320
-\nofMParguments=\count321
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count322
+\scratchbox=\box61
+\nofMPsegments=\count321
+\nofMParguments=\count322
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count323
 \MPscratchDim=\dimen172
-\MPnumerator=\count323
-\makeMPintoPDFobject=\count324
-\everyMPtoPDFconversion=\toks36
+\MPnumerator=\count324
+\makeMPintoPDFobject=\count325
+\everyMPtoPDFconversion=\toks38
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -429,20 +437,20 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 35.
+Package hyperref Info: Link coloring OFF on input line 43.
 
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-\c@lstlisting=\count325
-LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
+\c@lstlisting=\count326
+LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -450,12 +458,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
@@ -464,7 +472,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.43 \chapter
+l.51 \chapter
              {Introduction} [1
 
 ]
@@ -474,44 +482,47 @@ Chapter 1.
 ]
 Chapter 2.
 
-Overfull \hbox (14.94493pt too wide) in paragraph at lines 54--64
+Overfull \hbox (14.94493pt too wide) in paragraph at lines 62--72
  [][] 
  []
 
 [3
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.2.1}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.87     \item $
+                0 \leq \alpha \leq 1$  is the learning rate]
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
 [4{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }]
 Chapter 3.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11a listings language file
-)
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 96.
+nput line 104.
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 [5
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
@@ -521,108 +532,131 @@ File: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png Graphic
  file (type png)
 <use ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png>
 Package pdftex.def Info: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distrib
-ution_1.png  used on input line 144.
+ution_1.png  used on input line 152.
 (pdftex.def)             Requested size: 276.00105pt x 161.74791pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 <../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png, id=146, 715.
 473pt x 426.393pt>
 File: ../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png Graphic 
 file (type png)
 <use ../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png>
 Package pdftex.def Info: ../../Part 1: Tic Tac Toe/figures/x_vs_random_distribu
-tion_1.png  used on input line 151.
+tion_1.png  used on input line 159.
 (pdftex.def)             Requested size: 276.00105pt x 164.48386pt.
+[6
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.163 
+       <../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png>]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 164.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 156.
+(hyperref)                removing `\alpha' on input line 164.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\alpha' on input line 156.
+(hyperref)                removing `math shift' on input line 164.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 156.
+(hyperref)                removing `math shift' on input line 164.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 156.
+(hyperref)                removing `\tau' on input line 164.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\tau' on input line 156.
+(hyperref)                removing `math shift' on input line 164.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 156.
-
-<../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png, id=148, 
+<../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png, id=161, 
 626.5809pt x 626.5809pt>
 File: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png Grap
 hic file (type png)
 <use ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png>
 Package pdftex.def Info: ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_o
-f_params_1.png  used on input line 168.
+f_params_1.png  used on input line 176.
 (pdftex.def)             Requested size: 276.00105pt x 276.00238pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[6] [7 <../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png>]
-Overfull \hbox (21.63957pt too wide) in paragraph at lines 208--208
+[7
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.180 
+       <../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png>]
+[8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.193     \item T
+                 he likely reason for high \textbf{X} and \textbf{O} wins fo...
+ <../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png>]
+Overfull \hbox (21.63957pt too wide) in paragraph at lines 216--216
 []\OT1/cmr/bx/n/14.4 Theoretical Q-Table com-pared to RL-estimated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
 
  []
 
-[8 <../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png>]
-Overfull \hbox (92.23393pt too wide) in paragraph at lines 221--229
+
+Overfull \hbox (92.23393pt too wide) in paragraph at lines 229--237
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (92.23393pt too wide) in paragraph at lines 237--245
+[9
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.240 
+      ]
+Overfull \hbox (92.23393pt too wide) in paragraph at lines 245--253
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[9 <../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png>]
-[10]
+[10
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.259 \chapter
+              {Deep Q-Learning}
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.3}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.259 \chapter
+              {Deep Q-Learning}]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
 
  []
 
 
-Overfull \hbox (1.99126pt too wide) in paragraph at lines 255--255
+Overfull \hbox (1.99126pt too wide) in paragraph at lines 263--263
 []\OT1/cmr/bx/n/14.4 Neural Net-work struc-ture, back-prop-a-ga-tion,
  []
 
@@ -631,7 +665,7 @@ Overfull \hbox (1.99126pt too wide) in paragraph at lines 255--255
 ] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11a listings language file
 )
-Overfull \hbox (5.37457pt too wide) in paragraph at lines 299--300
+Overfull \hbox (5.37457pt too wide) in paragraph at lines 307--308
 \OT1/cmr/m/n/10 Having made a sim-ple li-brary for im-ple-ment-ing a DQN, I hav
 e prompted ``Gemini-
  []
@@ -642,32 +676,39 @@ File: ../../Part 2: Deep Q-Learning/figures/CartPole-v1_example.png Graphic fil
 e (type png)
 <use ../../Part 2: Deep Q-Learning/figures/CartPole-v1_example.png>
 Package pdftex.def Info: ../../Part 2: Deep Q-Learning/figures/CartPole-v1_exam
-ple.png  used on input line 304.
+ple.png  used on input line 312.
 (pdftex.def)             Requested size: 276.00105pt x 184.00607pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png, id=206, 602.
+[12]
+<../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png, id=231, 602.
 25pt x 401.5pt>
 File: ../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png Graphic 
 file (type png)
 <use ../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png>
 Package pdftex.def Info: ../../Part 2: Deep Q-Learning/figures/LunarLander-v3_e
-xample.png  used on input line 311.
+xample.png  used on input line 319.
 (pdftex.def)             Requested size: 276.00105pt x 184.00607pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[12] [13 <../../Part 2: Deep Q-Learning/figures/CartPole-v1_example.png (PNG co
-py)> <../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png (PNG cop
-y)>]
+ [13
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.323 \chapter
+              {Conclusion}
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.323 \chapter
+              {Conclusion} <../../Part 2: Deep Q-Learning/figures/CartPole-v1_e
+xample.png (PNG copy)> <../../Part 2: Deep Q-Learning/figures/LunarLander-v3_ex
+ample.png (PNG copy)>]
 Chapter 5.
 [14
 
 ]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--321
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
 
  []
 
@@ -676,17 +717,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 320--321
 ]
 Chapter 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--337
+Underfull \hbox (badness 10000) in paragraph at lines 343--345
 
  []
 
 
-Overfull \hbox (18.74684pt too wide) in paragraph at lines 340--341
+Overfull \hbox (18.74684pt too wide) in paragraph at lines 348--349
 []$\OT1/cmtt/m/n/10 https : / / github . com / peterladur / Reinforcement-[]Lea
 rning-[]Research-[]Project$[] 
  []
@@ -702,10 +743,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 7EC42D3C11A6C9CEBA17C59F313EC05C;2897.
  ) 
 Here is how much of TeX's memory you used:
- 14435 strings out of 467538
- 229160 string characters out of 5419551
- 898151 words of memory out of 5000000
- 43071 multiletter control sequences out of 15000+600000
+ 14443 strings out of 467538
+ 229525 string characters out of 5419551
+ 898031 words of memory out of 5000000
+ 43077 multiletter control sequences out of 15000+600000
  645189 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,18n,83p,1089b,1357s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -729,7 +770,7 @@ e/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2025/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
 25/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (17 pages, 358532 bytes).
+Output written on main.pdf (17 pages, 358645 bytes).
 PDF statistics:
  359 PDF objects out of 1000 (max. 8388607)
  289 compressed objects within 3 object streams
