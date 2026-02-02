@@ -185,6 +185,7 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
@@ -236,16 +237,19 @@ INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
 INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
 INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
-INPUT ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png
-INPUT ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png
-INPUT ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png
-INPUT ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png
-INPUT ../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png
-INPUT ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png
-INPUT ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png
-INPUT ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png
-INPUT ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png
-INPUT ../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT ../../Part 2: Deep Q-Learning/figures/CartPole-v1_example.png
+INPUT ../../Part 2: Deep Q-Learning/figures/CartPole-v1_example.png
+INPUT ../../Part 2: Deep Q-Learning/figures/CartPole-v1_example.png
+INPUT ../../Part 2: Deep Q-Learning/figures/CartPole-v1_example.png
+INPUT ../../Part 2: Deep Q-Learning/figures/CartPole-v1_example.png
+INPUT ../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png
+INPUT ../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png
+INPUT ../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png
+INPUT ../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png
+INPUT ../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

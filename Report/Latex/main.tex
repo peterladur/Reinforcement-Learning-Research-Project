@@ -29,14 +29,19 @@
 
 
 \title{\textbf{Q-Learning}}
-\author{Peter (Petr) Ladur\\\\56445760}
+\author{Peter (Petr) Ladur\\\\56445760\\\\Supervised by: xxx yyy}
 \date{}
-
 
 \begin{document}
 \maketitle
+\chapter*{Acknowledgements}
+I would like to express my gratitude to my supervisor xxx yyy for their guidance and technical feedback throughout this summer research project. \\\\
+
+\noindent
+I would also like to thank the Mathematics Department at [my uni] for allowing me to undertake this summer research project.
+
 \chapter{Introduction}
-The aim of this project is to explore Q-Learning in the context of tic-tac-toe and other applications using python. Theoretical Q-Table was generated using the ``minimax'' algorithm, and was compared to Q-Tables generated through training against both, random and perfect opponent. Results of agents trained on different policies playing against each other were recorded. How hyperparameters ($\alpha$, $\tau$) affect training results was investigated and an optimal function for hyperparameters was proposed. Deep-Q-Learning was investigated in the context of different games in the ``Open-AI gymnasium''.
+The aim of this project is to explore Q-Learning in the context of tic-tac-toe and other applications using Python. Theoretical Q-Table was generated using the ``minimax'' algorithm, and was compared to Q-Tables generated through training against both, random and perfect opponent. Results of agents trained on different policies playing against each other were recorded. How hyperparameters ($\alpha$, $\tau$) affect training results was investigated and an optimal function for hyperparameters was proposed. Deep-Q-Learning was investigated in the context of different games in the ``Open-AI gymnasium''.
 
 \chapter{Background}
 \section{Q-Table}
@@ -80,15 +85,15 @@ The learning rate $\alpha$ determines how much does the new information replace 
 
 The immediate reward in the context of tic-tac-toe is $0$ if the game is not terminated. If the game is terminated, the immediate reward $r$ is $1$ for a game that is won by \textbf{X}, $0$ for a game that is drawn and $-1$ for a game that is won by \textbf{O}. \\
 
-The discount factor is a measure of how much the future is important compared to the current decision. For example in the context of tic-tac-toe the future matters just as much as the current situation, no matter if you loose on move 5 or move 7, you still loose. Meanwhile, in a long game with no set win condition, such as a player trying to dodge obstacles, often the most important thing is not to die right now, the future is less important.
+The discount factor is a measure of how much the future is important compared to the current decision. For example in the context of tic-tac-toe the future matters just as much as the current situation, no matter if you lose on move 5 or move 7, you still lose. Meanwhile, in a long game with no set win condition, such as a player trying to dodge obstacles, often the most important thing is not to die right now, the future is less important.
 
 
 \chapter{Q-Learning on tic-tac-toe}
 
 \section{Generating theoretical Q-Table}
-The ``minimax'' algorithm can be used in turn-based games to calculate the best policy. It is designed to minimise the potential loss and maximise the potential gain. The algorithm works by first generating all the possible final states and then taking turns ``undoing'' the moves that could have lead to that state by removing \textbf{X}'s and \textbf{O}'s until the initial state (empty board) is reached. Each time an \textbf{X} or \textbf{O} is removed the worst case scenario is considered, filling up the theoretical Q-Table as seen in Listing \ref{lst:minimax}. This explores the game trees and backproagates the values, filling up a theoretical Q-Table.
+The ``minimax'' algorithm can be used in turn-based games to calculate the best policy. It is designed to minimise the potential loss and maximise the potential gain. The algorithm works by first generating all the possible final states and then taking turns ``undoing'' the moves that could have lead to that state by removing \textbf{X}'s and \textbf{O}'s until the initial state (empty board) is reached. Each time an \textbf{X} or \textbf{O} is removed the worst case scenario is considered, filling up the theoretical Q-Table as seen in code box \ref{lst:minimax}. This explores the game trees and backproagates the values, filling up a theoretical Q-Table.
 
-\begin{lstlisting}[caption={Minimax algorithm for generating the theoretical Q-Table}, label={lst:minimax}, language=Python]
+\begin{lstlisting}[caption={Minimax algorithm for generating the theoretical Q-Table}, label={lst:minimax}, language=Pascal]
 terminal_states = generate_all_terminal_states()
 
 for parent_state in parent_states:
@@ -111,12 +116,14 @@ for parent_state in parent_states:
 
 \section{Q-Learning implementation}
 
-During the Q-Learning algorithm batches of games were played. The agent would choose moves using a weighted probability values according to a slightly modified Boltzmann function as seen in \eqref{modified Boltzmann}. States $s$, actions taken $a$ and results $r$ are stored in a queue. The queue is then emptied and Q-Table is updated using the Bellman equation as seen in \eqref{terminal state update} and \eqref{non terminal state update}.\\\\
+During the Q-Learning algorithm batches of games were played. The agent would choose moves using a weighted probability values $p$ according to a slightly modified Boltzmann function as seen in \eqref{modified Boltzmann}. States $s$, actions taken $a$ and results $r$ are stored in a queue. The queue is then emptied and Q-Table is updated using the Bellman equation as seen in \eqref{terminal state update} and \eqref{non terminal state update}.\\\\
 
 \begin{align}
     p_{i}(\tau) = \frac{\tau^{\epsilon_{i}}}{\displaystyle \sum_{j=1}^{9} \tau^{\epsilon_{j}}}
 \label{modified Boltzmann}
 \end{align}
+
+Where $\epsilon_{i} = Q(s, a_{i})$\\
 
 \textbf{If terminal state:}
 \begin{align}
@@ -124,13 +131,13 @@ During the Q-Learning algorithm batches of games were played. The agent would ch
 \label{terminal state update}
 \end{align}
 
-\textbf{If non terminal state: }
+\textbf{If non-terminal state: }
 \begin{align}
     Q(s_{t}, a) \leftarrow (1-\alpha) \cdot Q(s_{t}, a) + \alpha \max_{a}{Q(s_{t + 1}, a)} 
 \label{non terminal state update}
 \end{align}
 
-As agents learn their draw rate or win rate depending on if they are playing against a perfect or random opponent increases in the form of the decaying exponential. As \textbf{X} learns against optimal \textbf{O} the draws increase in the form of a decaying exponential draws \% = $e^{-k \cdot \text{games played}}$ as seen in Figures \ref{fig:x_vs_perfect_distribution_2}. While \textbf{X} learns against a random \textbf{O} the proportion of \textbf{X} wins increases exponentially as seen in Figure \ref{fig:x_vs_random_distribution_1}.
+As agents learn their draw rate or win rate depending on if they are playing against a perfect or random opponent increases in the form of the decaying exponential. As \textbf{X} learns against optimal \textbf{O} the draws increase in the form of a decaying exponential draws \% = $e^{-k \cdot \text{games played}}$ as seen in \cref{fig:x_vs_perfect_distribution_1}. While \textbf{X} learns against a random \textbf{O} the proportion of \textbf{X} wins increases exponentially as seen in \cref{fig:x_vs_random_distribution_1}.
 
 \begin{figure}[h]
     \centering
@@ -142,19 +149,19 @@ As agents learn their draw rate or win rate depending on if they are playing aga
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{"../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png"} % Path to your image
-    \caption{\textbf{X} training against perfect \textbf{O} causes the \textbf{X} win rate to increase in the form of a decaying exponential}
+    \caption{\textbf{X} training against random \textbf{O} causes the \textbf{X} win rate to increase in the form of a decaying exponential}
     \label{fig:x_vs_random_distribution_1}
 \end{figure}
 
 \section{Variations in $\alpha$ and $\tau$}
-The values of hyperparameters $\tau$ and $\alpha$  matter significantly. During the game it is best to decrease the learning rate. Initially it desired for the new information to rapidly change the Q-Table, but eventually a low learning rate means that one bad game will not significantly the Q-Values trained over hundreds of games in the past. Meanwhile, $\tau$ should increase switching from exploration to exploitation. Different models for $\tau$ and $\alpha$ have been tested, and two models are proposed as best candidates as seen in 
+The values of hyperparameters $\tau$ and $\alpha$  matter significantly. During the game it is best to decrease the learning rate. Initially it desired for the new information to rapidly change the Q-Table, but eventually a low learning rate means that one bad game will not significantly affect the Q-Values trained over hundreds of games in the past. Meanwhile, $\tau$ should increase switching from exploration to exploitation. Different models for $\tau$ and $\alpha$ have been tested, and two models are proposed as best candidates as seen in 
 
 \begin{align}
-    \alpha(\text{decay rate}) = \alpha_{inital} \cdot e^{-\text{decay rate} \times \text{game number}}\\
+    \alpha(\text{decay rate}) = \alpha_{initial} \cdot e^{-\text{decay rate} \times \text{game number}}\\
     \tau(\text{growth rate}) = \text{Maximum Rate}^{((\frac{\text{game number}}{\text{total games}})^{\text{growth rate}})}
 \end{align}
 
-In order to pick out the best parameters $a$ and $t$ for $\alpha$ and $\tau$ respectively, a range of $a$ and $t$ was picked, and an agent was trained for each combination as seen in Figure \ref{x_vs_perfect_range_of_params_1.png}.
+In order to pick out the best parameters $a$ and $t$ for $\alpha$ and $\tau$ respectively, a range of $a$ and $t$ was picked, and an agent was trained for each combination as seen in \cref{x_vs_perfect_range_of_params_1.png}.
 
 \begin{figure}[h]
     \centering
@@ -164,13 +171,13 @@ In order to pick out the best parameters $a$ and $t$ for $\alpha$ and $\tau$ res
 \end{figure}
 
 \begin{align*}
-    \alpha(\text{decay rate}) = \alpha_{inital} \cdot e^{-10^{-7} \times \text{game number}}\\
+    \alpha(\text{decay rate}) = \alpha_{initial} \cdot e^{-10^{-7} \times \text{game number}}\\
     \tau(\text{growth rate}) = \text{1000}^{((\frac{\text{game number}}{\text{total games}})^{10^{\frac{-1}{3}}})}
 \end{align*}
 
 \section{Optimal and non-optimal opponent}
 
-After training different agents, I have made them play 10000 against each other collecting results in Table \ref{tab:matrix of agents playing against each other}. 
+After training different agents, I have made them play 10000 against each other collecting results in \cref{tab:matrix of agents playing against each other}. 
 
 \begin{itemize}
     \item An agent trained against the random policy does very well against an agent trained on an optimal policy. The reason for this, is that an agent trained on the perfect policy can only choose the moves at random if its opponent makes a mistake. For example \textbf{X} trained on perfect would have never been exposed to a state where it can win, so it will not know where to go and will make a random move.
@@ -202,9 +209,9 @@ After training different agents, I have made them play 10000 against each other 
 
 The theoretical Q-Table generated using the minimax algorithm has differences to the Q-Table generated through RL. \\\\
 
-When generating the Q-Table of \textbf{X} playing against a perfect opponent, \textbf{O} will never end up in a loosing position. Hence, states where \textbf{O} has a chance to lose are never explored and much of the RL generated Q-Table is unfilled. For the states which are explored the values of the RL generated Q-Table are similar to theoretical values as seen in Table \ref{tab:Q-Table comparison for ____o_oxx} \\\\
+When generating the Q-Table of \textbf{X} playing against a perfect opponent, \textbf{O} will never end up in a losing position. Hence, states where \textbf{O} has a chance to lose are never explored and much of the RL generated Q-Table is unfilled. For the states which are explored the values of the RL generated Q-Table are similar to theoretical values as seen in \cref{tab:Q-Table comparison for ____o_oxx} \\\\
 
-When generating the Q-Table of \textbf{X} playing against a random opponent, more states are explored, and two out of three actions which lead to a guaranteed win (assuming perfect play), were given the q-value of 1 as seen in Table \ref{tab:Q-Table comparison for _______ox}. Likely, the reason why action (2, 3) was given the value of 0.00 is because it wasn't explored enough during the exploration phase.
+When generating the Q-Table of \textbf{X} playing against a random opponent, more states are explored, and two out of three actions which lead to a guaranteed win (assuming perfect play), were given the q-value of 1 as seen in \cref{tab:Q-Table comparison for _______ox}. Likely, the reason why action (2, 3) was given the value of 0.00 is because it wasn't explored enough during the exploration phase.
 
 
 %Q-Table example
@@ -244,17 +251,17 @@ RL-estimated Q-Table & 0.062 & \cellcolor{black!60} & \cellcolor{black!60} & 0.0
 \chapter{Deep Q-Learning}
 The main disadvantage of traditional Q-Learning is that it only works well with a few discrete states. If the input is continuous, then it will no longer work, as the Q-Table would need to be infinitely large. This problem is solved by implementing a Deep Q-Network (DQN), instead of a Q-Table. While in a Q-Table a state corresponds to all the exact Q-Values which can be taken by different actions, DQN estimates the Q-Values for all actions instead.\\
 
-I have implemented a simple NumPy-based library in python which allows for an implementation of a DQN.
+I have implemented a simple NumPy-based library in Python which allows for an implementation of a DQN.
 \section{Neural Network structure, backpropagation, cost function}
 
-By structure DQN is identical to a normal neural network. It takes in the state such as coordinates or stock prices in the input layer and forward propagates the input through the network to return the estimated Q-Values for different actions in the output layer as seen in equation \ref{eq:forward propagation}. 
+By structure DQN is identical to a normal neural network. It takes in the state such as coordinates or stock prices in the input layer and forward propagates the input through the network to return the estimated Q-Values for different actions in the output layer as seen in equation \eqref{eq:forward propagation}. 
 
 \begin{align}
     \mathbf{a}^{(l+1)} = \sigma \left( \mathbf{W}^{(l)} \mathbf{a}^{(l)} + \mathbf{b}^{(l)} \right)
     \label{eq:forward propagation}
 \end{align}
 
-The main difference between a Q-Table and a Q-Network is while during training a Q-Table, the Q-Values are simply updated using the Bellman equation, in a DQN weights and biases are adjusted. With a converged Q-Table $Q(s, a) = r + \gamma \max_{a'} Q(s', a')$ and very similarly, with a trained Deep Q-Network $Q(s, a, \theta) = r + \gamma \max_{a'} Q(s', a', \theta)$. During DQN training, an action picked is compared to the target as seen in equations \ref{eq:target} and \ref{eq:loss function}. The weights and biases $\theta$ are then adjusted through backpropagation with respect to the cost function $\mathcal{C}(\bm{\theta})$ as seen in listing \ref{lst:backprop}. When calculating the target, a copy of the DQN with constant parameters $\theta^{-}$ is used which are updated to match the parameters $\theta$ every N steps. 
+The main difference between a Q-Table and a Q-Network is while during training a Q-Table, the Q-Values are simply updated using the Bellman equation, in a DQN weights and biases are adjusted. With a converged Q-Table $Q(s, a) = r + \gamma \max_{a'} Q(s', a')$ and very similarly, with a trained Deep Q-Network $Q(s, a, \theta) = r + \gamma \max_{a'} Q(s', a', \theta)$. During DQN training, an action picked is compared to the target as seen in equations \eqref{eq:target} and \eqref{eq:loss function}. The weights and biases $\theta$ are then adjusted through backpropagation with respect to the cost function $\mathcal{C}(\bm{\theta})$ as seen in code box \ref{lst:backprop}. When calculating the target, a copy of the DQN with constant parameters $\theta^{-}$ is used which are updated to match the parameters $\theta$ every N steps. 
 
 \begin{equation}
     \text{target} = r + \gamma \max_{a'} Q(s', a'; \bm{\theta}^-)
@@ -262,7 +269,7 @@ The main difference between a Q-Table and a Q-Network is while during training a
 \end{equation}
 
 \begin{equation}
-    \mathcal{C}(\bm{\theta}) = \mathbb{E}_{(s, a, r, s')} \left[\frac{1}{2} \left( Q(s, a; \bm{\theta} - \text{target}) \right)^2 \right]
+    \mathcal{C}(\bm{\theta}) = \mathbb{E}_{(s, a, r, s')} \left[\frac{1}{2} \left ( Q(s, a; \bm{\theta}) - \text{target}) \right)^2 \right]
         \label{eq:loss function}
 \end{equation}
 
@@ -294,19 +301,29 @@ Having made a simple library for implementing a DQN, I have prompted ``Gemini-3-
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{"../../Part 2: Deep Q-Learning/fgiures/CartPole-v1_example.png"} % Path to your image
+    \includegraphics[width=0.8\textwidth]{"../../Part 2: Deep Q-Learning/figures/CartPole-v1_example.png"} % Path to your image
     \caption{The library I made is able to train a neural network to control a cart balancing a pole. The neural network takes in 4 parameters and generates 2 q-values.}
     \label{fig:CartPole-v1_example.png}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{"../../Part 2: Deep Q-Learning/fgiures/LunarLander-v3_example.png"} % Path to your image
+    \includegraphics[width=0.8\textwidth]{"../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png"} % Path to your image
     \caption{The library I made is able to train a neural network to control a spaceship landing on the moon. The neural network takes in 8 parameters and generates 4 q-values.}
     \label{fig:LunarLander-v3_example.png}
 \end{figure}
 \chapter{Conclusion}
-In this project I have succeeded in implementing traditional Q-Learning in the context of tic-tac-toe and with help of AI implemented Deep Q-Learning in the context of two simple games. During Q-Learning in tic-tac-toe agents learn in an exponential manner against perfect and a random opponent drawing and winning more respectively. The most notable feature discovered when making agents trained on different policies play against each other, was that agents trained on the random policy would outperform agents trained on the perfect policy. The RL-estimated Q-Table was compared to a theoretical Q-Table was similar during training against a perfect opponent but was different against a random opponent due to differences in future policy. During Deep Q-Learning implementation a small NumPy-based library was which could then be implemented in any context, such as the ``Cart Pole'' and ``Lunar Lander'' games developed by Open-AI.
+In this project I have succeeded in implementing traditional Q-Learning in the context of tic-tac-toe and with help of AI implemented Deep Q-Learning in the context of two simple games. During Q-Learning in tic-tac-toe agents learn in an exponential manner against perfect and a random opponent drawing and winning more respectively. The most notable feature discovered when making agents trained on different policies play against each other, was that agents trained on the random policy would outperform agents trained on the perfect policy. The RL-estimated Q-Table was compared to a theoretical Q-Table was similar during training against a perfect opponent but was different against a random opponent due to differences in future policy. During the Deep Q-Learning implementation, a small NumPy-based library was developed, which could then be applied to various environments, such as the ``Cart Pole'' and ``Lunar Lander'' games developed by Open-AI.
+
+\chapter{Future Work}
+
+During this project there were several areas which I would like to explore further.\\
+
+\begin{itemize}
+    \item Experiment with other hyperparameter functions such as piecewise functions. Particularly, to not explore anything initially, and exploitation.
+    \item Experiment with $\gamma$. Although it doesn't matter if you win on move $5$ or move $7$, winning faster is preferred, as it is still possible for an agent to make a mistake in the future
+    \item Implementing a DQN in the context of a stock market. I would like to input historical data into a DQN and train it to sell, buy or hold, trying to make profit.
+\end{itemize}
 
 
 \chapter{Appendices}
