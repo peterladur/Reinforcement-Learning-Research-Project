@@ -1,6 +1,8 @@
 # Reinforcement-Learning-Research-Project
 
-The aim of this project is to explore Q-Learning in the context of Tic-Tac-Toe and other applications using python. Theoretical Q-Table was generated using the "minimax" algorithm, and was compared to Q-Tables generated through training against both, random and perfect opponent. Deep-Q-Learning was investigated in the context of different games in the "Open-AI gymnasium". 
+**University Summer Research Project**
+
+The aim of this project is to explore Q-Learning in the context of tic-tac-toe and other applications using python. Theoretical Q-Table was generated using the "minimax" algorithm, and was compared to Q-Tables generated through training against both, random and perfect opponent. Results of agents trained on different policies playing against each other were recorded. How hyperparameters ($\alpha$, $\tau$) affect training results was investigated and an optimal function for hyperparameters was proposed. Deep-Q-Learning was investigated in the context of different games in the "Open-AI gymnasium".
 
 ## To access the code:
 
