@@ -1,11 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1770011377.17362 "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" "main.pdf" "main" 1770011378.61176 0
+["pdflatex"] 1770019944.03569 "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" "main.pdf" "main" 1770019945.42959 0
   "../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png" 1769575205.96086 22721 c0b631cdf8a897b77cf28b2f553e49bc ""
   "../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png" 1769505783.90323 41015 8724aeb5210531fafac8f13878200753 ""
   "../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png" 1769931920.15351 42957 b3190ba356a01605661a8dd72c60a91c ""
   "../../Part 2: Deep Q-Learning/figures/CartPole-v1_example.png" 1769994248.55934 9093 185c646663d3c24c8b461dcf9de650ca ""
   "../../Part 2: Deep Q-Learning/figures/LunarLander-v3_example.png" 1769994381.74166 15997 a471b06530a39a3ff1f04f445e863871 ""
-  "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" 1770011376.90415 22994 1123186a111af687ea34c3c92d14dd37 ""
+  "/home/peterladur/Documents/Programming/University/Reinforcement-Learning-Research-Project/Report/Latex/main.tex" 1770019942.20206 22996 22d7cfbd0cebda7db5f153fd31892e33 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -135,9 +135,9 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1763631524 5541377 0af08d58b046ada1f2a2c7d4825ab417 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1763631673 3635529 f350ced5431f0f4ec1b4e8f85b42e9ea ""
   "/usr/local/texlive/2025/texmf.cnf" 1763631518.12083 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "main.aux" 1770011378.47554 9710 3779c0fea868620e3a32fbebbe670727 "pdflatex"
-  "main.out" 1770011378.47654 2897 7ec42d3c11a6c9ceba17c59f313ec05c "pdflatex"
-  "main.tex" 1770011376.90415 22994 1123186a111af687ea34c3c92d14dd37 ""
+  "main.aux" 1770019945.29665 9712 4f2db88c10cb7a39c926f903cae1a20c "pdflatex"
+  "main.out" 1770019945.29865 2907 e27cea154091c0c31e703989522e51b9 "pdflatex"
+  "main.tex" 1770019942.20206 22996 22d7cfbd0cebda7db5f153fd31892e33 ""
   (generated)
   "main.aux"
   "main.log"
