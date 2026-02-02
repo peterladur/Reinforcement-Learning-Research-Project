@@ -5,3 +5,6 @@
 # Python cache
 __pycache__/
 *.py[cod]
+
+#Spell Check
+.vscode
