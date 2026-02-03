@@ -1,0 +1,139 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+GeeksforGeeks%
+}{%
+GeeksforGeeks%
+}{%
+{\protect \APACyear {2019}}%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+geeksforgeeks_2019_deep}
+\APACinsertmetastar {%
+geeksforgeeks_2019_deep}%
+\begin{APACrefauthors}%
+GeeksforGeeks.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019{\protect \BCnt {1}}}{06}{}.
+\newblock
+\APACrefbtitle {Deep QLearning in Reinforcement Learning.} {Deep qlearning in
+  reinforcement learning.}
+\newblock
+\begin{APACrefURL}
+  [{2026-02-03}]\url{https://www.geeksforgeeks.org/deep-learning/deep-q-learning/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+GeeksforGeeks%
+}{%
+GeeksforGeeks%
+}{%
+{\protect \APACyear {2019}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+geeksforgeeks_2019_qlearning}
+\APACinsertmetastar {%
+geeksforgeeks_2019_qlearning}%
+\begin{APACrefauthors}%
+GeeksforGeeks.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019{\protect \BCnt {2}}}{02}{}.
+\newblock
+\APACrefbtitle {QLearning in Reinforcement Learning.} {Qlearning in
+  reinforcement learning.}
+\newblock
+\begin{APACrefURL}
+  [{2026-02-03}]\url{https://www.geeksforgeeks.org/machine-learning/q-learning-in-python/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Intelligence%
+}{%
+Intelligence%
+}{%
+{\protect \APACyear {2021}}%
+}]{%
+intelligence_2021_reinforcement}
+\APACinsertmetastar {%
+intelligence_2021_reinforcement}%
+\begin{APACrefauthors}%
+Intelligence, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{04}{}.
+\newblock
+\APACrefbtitle {Reinforcement Learning : Tic-Tac-Toe.} {Reinforcement learning
+  : Tic-tac-toe.}
+\newblock
+\begin{APACrefURL}
+  [{2026-02-03}]\url{https://www.youtube.com/watch?v=KEQhaBIZ9yk}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mnih%
+\ \protect \BOthers {.}}{%
+Mnih%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+mnih_2015_humanlevel}
+\APACinsertmetastar {%
+mnih_2015_humanlevel}%
+\begin{APACrefauthors}%
+Mnih, V.%
+, Kavukcuoglu, K.%
+, Silver, D.%
+, Rusu, A\BPBI A.%
+, Veness, J.%
+, Bellemare, M\BPBI G.%
+\BDBL {}Hassabis, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{02}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Human-level Control through Deep Reinforcement Learning}
+  {Human-level control through deep reinforcement learning}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature}{518}{}{529-533}.
+\newblock
+\begin{APACrefURL}
+  [{2026-02-03}]\url{https://www.nature.com/articles/nature14236}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1038/nature14236} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Zhang%
+}{%
+Zhang%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+zhang_2020_building}
+\APACinsertmetastar {%
+zhang_2020_building}%
+\begin{APACrefauthors}%
+Zhang, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{11}{}.
+\newblock
+\APACrefbtitle {Building a neural network FROM SCRATCH (no Tensorflow/Pytorch,
+  just numpy & math).} {Building a neural network from scratch (no
+  tensorflow/pytorch, just numpy & math).}
+\newblock
+\begin{APACrefURL}
+  [{2026-02-03}]\url{https://www.youtube.com/watch?v=w8yWXqWQYmU}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

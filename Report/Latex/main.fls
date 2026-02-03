@@ -126,6 +126,19 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/bm.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/bm.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-british.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-british.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-british.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-en-GB.ini
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel-english/british.ldf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel-english/british.ldf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel-english/british.ldf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel-english/english.ldf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/natbib/natbib.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/natbib/natbib.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT ./main.aux
@@ -137,6 +150,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/grfext/grfext.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/grfext/grfext.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
@@ -213,11 +228,11 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.e
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
-INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png
-INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png
-INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png
-INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png
-INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_1.png
+INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_2.png
+INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_2.png
+INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_2.png
+INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_2.png
+INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_distribution_2.png
 INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png
 INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png
 INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_random_distribution_1.png
@@ -230,12 +245,12 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam1
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
-INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
-INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
-INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
-INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
-INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
+INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
+INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
+INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
+INPUT ../../Part 1: Tic Tac Toe/figures/x_vs_perfect_range_of_params_1.png
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
