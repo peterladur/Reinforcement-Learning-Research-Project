@@ -40,16 +40,16 @@
 }
 
 \title{\textbf{Q-Learning}}
-\author{Peter (Petr) Ladur\\\\56445760\\\\Supervised by: xxx yyy}
+\author{Peter (Petr) Ladur\\\\56445760\\\\Supervised by: Elena Moltchanova}
 \date{}
 
 \begin{document}
 \maketitle
 \chapter*{Acknowledgements}
-I would like to express my gratitude to my supervisor xxx yyy for their guidance and technical feedback throughout this summer research project. \\\\
+I would like to express my gratitude to my supervisor Elena Moltchanova for their guidance and technical feedback throughout this summer research project. \\\\
 
 \noindent
-I would also like to thank the Mathematics Department at [my uni] for allowing me to undertake this summer research project.
+I would also like to thank the Mathematics Department at UC for allowing me to undertake this summer research project.
 
 \chapter{Introduction}
 Games are often the perfect sandbox for experimenting with machine learning algorithms. The aim of this project is to explore Q-Learning in the context of tic-tac-toe and other applications using Python. Since tic-tac-toe is a drawn game assuming perfect play and involves no chance, there is a clear baseline for how well a random agent would perform. Theoretical Q-Table was generated using the ``minimax'' algorithm, and was compared to reinforcement learning (RL) estimated Q-Tables through training against both, random and perfect opponent. To analyse different training policies (perfect/random opponent), results of agents trained on different policies playing against each other were recorded. Hyperparameters significantly affect the training results, so a range of them were explored and functions for $\alpha$ and $\tau$ were proposed. Lastly, in order to analyse more complex games, Deep Q-Learning was investigated in the context of different games in the Open-AI's ``gymnasium''.
